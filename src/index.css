@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: #1e3a5f;
+  --color-primary-light: #2a5298;
+  --color-primary-dark: #142840;
+  --color-accent: #c9a84c;
+  --color-accent-light: #d4b96a;
+  --color-accent-dark: #a8882f;
+  --color-background: #f8f9fa;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #f8f9fa;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: #1e3a5f;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ── Editor field highlights ─────────────────────────────────────────────── */
+
+/* Auto-filled from lawyer profile — blue */
+.autofill-field {
+  background-color: #dbeafe;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+/* Needs manual input — yellow with dashed underline */
+.manual-field {
+  background-color: #fef9c3;
+  border-radius: 2px;
+  padding: 0 2px;
+  cursor: pointer;
+  border-bottom: 1px dashed #ca8a04;
+}
