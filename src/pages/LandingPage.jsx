@@ -30,7 +30,11 @@ const FEATURES = [
 ]
 
 export default function LandingPage() {
-  const { user, loading } = useAuth()
+  const {
+  user,
+  loading,
+  profileComplete,
+} = useAuth()
 
   useEffect(() => {
     document.title =
@@ -51,11 +55,15 @@ export default function LandingPage() {
     )
   }
 
-  // Already logged in? Go straight to dashboard.
-  if (user) {
-    return <Navigate to="/dashboard" replace />
-  }
-
+ // Already logged in?
+if (user) {
+  return (
+    <Navigate
+      to={profileComplete ? '/dashboard' : '/onboarding'}
+      replace
+    />
+  )
+}
   return (
     <div className="min-h-screen bg-[#f8f9fa] font-sans flex flex-col">
 

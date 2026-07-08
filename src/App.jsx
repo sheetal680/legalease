@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
+
 import { AuthProvider } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
 
@@ -16,9 +17,11 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+
         <Toaster
           position="top-right"
           toastOptions={{
+            duration: 3500,
             style: {
               borderRadius: '8px',
               background: '#1e3a5f',
@@ -26,25 +29,86 @@ export default function App() {
             },
           }}
         />
+
         <Routes>
-          {/* Public */}
-          <Route path="/"      element={<LandingPage />} />
-          <Route path="/login" element={<LoginPage />} />
 
-          {/* Onboarding — protected but no navbar (full-screen flow) */}
-          <Route path="/onboarding" element={
-            <ProtectedRoute noNav>
-              <OnboardingPage />
-            </ProtectedRoute>
-          } />
+          {/* ---------- PUBLIC ---------- */}
 
-          {/* Protected + Navbar */}
-          <Route path="/dashboard"          element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
-          <Route path="/templates"          element={<ProtectedRoute><Templates /></ProtectedRoute>} />
-          <Route path="/editor/:documentId" element={<ProtectedRoute><Editor /></ProtectedRoute>} />
-          <Route path="/cases"              element={<ProtectedRoute><Cases /></ProtectedRoute>} />
-          <Route path="/settings"           element={<ProtectedRoute><SettingsPage /></ProtectedRoute>} />
+          <Route
+            path="/"
+            element={<LandingPage />}
+          />
+
+          <Route
+            path="/login"
+            element={<LoginPage />}
+          />
+
+          {/* ---------- PROTECTED ---------- */}
+
+          <Route
+            path="/onboarding"
+            element={
+              <ProtectedRoute noNav>
+                <OnboardingPage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/templates"
+            element={
+              <ProtectedRoute>
+                <Templates />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/editor/:documentId"
+            element={
+              <ProtectedRoute>
+                <Editor />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/cases"
+            element={
+              <ProtectedRoute>
+                <Cases />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/settings"
+            element={
+              <ProtectedRoute>
+                <SettingsPage />
+              </ProtectedRoute>
+            }
+          />
+
+          {/* ---------- FALLBACK ---------- */}
+
+          <Route
+            path="*"
+            element={<Navigate to="/" replace />}
+          />
+
         </Routes>
+
       </AuthProvider>
     </BrowserRouter>
   )
