@@ -1,21 +1,23 @@
-import { createContext, useContext, useEffect, useRef, useState, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
 const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
-  const [user, setUser]                       = useState(null)
-  const [profile, setProfile]                 = useState(null)
-  const [profileComplete, setProfileComplete] = useState(false)
-  const [loading, setLoading]                 = useState(true)
   const navigate = useNavigate()
+  const location = useLocation()
 
-  // Track current user in a ref so the auth listener closure is never stale
-  const userRef = useRef(null)
-  useEffect(() => { userRef.current = user }, [user])
-
-  // ── Fetch helpers ────────────────────────────────────────────────────────────
+  const [user, setUser] = useState(null)
+  const [profile, setProfile] = useState(null)
+  const [profileComplete, setProfileComplete] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   const fetchProfile = useCallback(async (userId) => {
     const { data, error } = await supabase
@@ -23,112 +25,155 @@ export function AuthProvider({ children }) {
       .select('*')
       .eq('user_id', userId)
       .maybeSingle()
-    if (error) console.error('Error fetching profile:', error.message)
-    return data ?? null
+
+    if (error) {
+      console.error(error)
+      return null
+    }
+
+    return data
   }, [])
 
-  // ── Session handler ──────────────────────────────────────────────────────────
-
-  const handleSession = useCallback(async (session, isInitial = false) => {
-    if (!session?.user) {
-      setUser(null)
-      setProfile(null)
-      setProfileComplete(false)
-      setLoading(false)
-      return
-    }
-
-    setUser(session.user)
-    userRef.current = session.user
-
-    const profileData = await fetchProfile(session.user.id)
-    setProfile(profileData)
-
-    const complete = Boolean(profileData?.profile_complete)
-    setProfileComplete(complete)
-    setLoading(false)
-
-    if (!isInitial) {
-      if (!profileData || !complete) {
-        navigate('/onboarding')
-      } else {
-        navigate('/dashboard')
-      }
-    }
-  }, [fetchProfile, navigate])
-
-  // ── Auth state listener ──────────────────────────────────────────────────────
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      handleSession(session, true)
-    })
-
-    const { data: { subscription: authListener } } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (_event === 'SIGNED_IN') {
-        // Only navigate on a genuine new sign-in.
-        // If the user is already authenticated (same user ID), this is a silent
-        // session/token refresh triggered by tab focus — just update state, no redirect.
-        const previousUserId = userRef.current?.id
-        const incomingUserId = session?.user?.id
-
-        if (!previousUserId || previousUserId !== incomingUserId) {
-          handleSession(session, false)
-        } else {
-          // Session refreshed for the same user — update quietly
-          setUser(session.user)
-        }
-      } else if (_event === 'SIGNED_OUT') {
+  const processUser = useCallback(
+    async (session) => {
+      if (!session?.user) {
         setUser(null)
         setProfile(null)
         setProfileComplete(false)
         setLoading(false)
-        navigate('/login')
+
+        if (location.pathname !== '/login') {
+          navigate('/login', { replace: true })
+        }
+
+        return
+      }
+
+      setUser(session.user)
+
+      const profileData = await fetchProfile(session.user.id)
+
+      setProfile(profileData)
+
+      const completed = Boolean(profileData?.profile_complete)
+
+      setProfileComplete(completed)
+
+      setLoading(false)
+
+      const current = location.pathname
+
+      if (
+        current === '/' ||
+        current === '/login' ||
+        current.startsWith('/auth')
+      ) {
+        if (completed) {
+          navigate('/dashboard', { replace: true })
+        } else {
+          navigate('/onboarding', { replace: true })
+        }
+      }
+    },
+    [fetchProfile, navigate, location.pathname]
+  )
+
+  useEffect(() => {
+    let mounted = true
+
+    async function init() {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession()
+
+      if (!mounted) return
+
+      await processUser(session)
+    }
+
+    init()
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (event, session) => {
+      console.log('AUTH EVENT:', event)
+
+      switch (event) {
+        case 'INITIAL_SESSION':
+        case 'SIGNED_IN':
+        case 'TOKEN_REFRESHED':
+        case 'USER_UPDATED':
+          await processUser(session)
+          break
+
+        case 'SIGNED_OUT':
+          setUser(null)
+          setProfile(null)
+          setProfileComplete(false)
+          setLoading(false)
+
+          navigate('/login', { replace: true })
+          break
+
+        default:
+          break
       }
     })
 
-    return () => authListener.unsubscribe()
-  }, [handleSession, navigate])
-
-  // ── Actions ──────────────────────────────────────────────────────────────────
-
-  const signInWithGoogle = useCallback(async () => {
+    return () => {
+      mounted = false
+      subscription.unsubscribe()
+    }
+  }, [processUser, navigate])
+    const signInWithGoogle = useCallback(async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: window.location.origin },
+      options: {
+        redirectTo: `${window.location.origin}/`,
+      },
     })
+
     if (error) throw error
   }, [])
 
   const signOut = useCallback(async () => {
     const { error } = await supabase.auth.signOut()
+
     if (error) throw error
   }, [])
 
   const refreshProfile = useCallback(async () => {
     if (!user) return
-    const data = await fetchProfile(user.id)
-    setProfile(data)
-    setProfileComplete(Boolean(data?.profile_complete))
+
+    const profileData = await fetchProfile(user.id)
+
+    setProfile(profileData)
+    setProfileComplete(Boolean(profileData?.profile_complete))
   }, [user, fetchProfile])
 
   return (
-    <AuthContext.Provider value={{
-      user,
-      profile,
-      profileComplete,
-      loading,
-      signInWithGoogle,
-      signOut,
-      refreshProfile,
-    }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        profile,
+        profileComplete,
+        loading,
+        signInWithGoogle,
+        signOut,
+        refreshProfile,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )
 }
 
 export function useAuth() {
-  const ctx = useContext(AuthContext)
-  if (!ctx) throw new Error('useAuth must be used within AuthProvider')
-  return ctx
+  const context = useContext(AuthContext)
+
+  if (!context) {
+    throw new Error('useAuth must be used inside AuthProvider')
+  }
+
+  return context
 }
