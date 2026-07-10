@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import {
   Scale, LayoutDashboard, FileText, Briefcase,
   Settings, LogOut, Menu, X, ChevronDown,
@@ -15,7 +15,6 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const { user, profile, signOut } = useAuth()
-  const navigate = useNavigate()
   const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
