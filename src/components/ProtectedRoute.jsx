@@ -11,50 +11,30 @@ export default function ProtectedRoute({
     loading,
   } = useAuth()
 
-  // ----------------------------------
-  // Wait for Supabase session restore
-  // ----------------------------------
-
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#f8f9fa]">
         <div className="flex flex-col items-center gap-4">
-
           <div className="w-10 h-10 border-4 border-[#1e3a5f] border-t-transparent rounded-full animate-spin" />
-
           <p className="text-[#1e3a5f] text-sm font-medium">
             Loading your workspace...
           </p>
-
         </div>
       </div>
     )
   }
 
-  // ----------------------------------
-  // Not logged in
-  // ----------------------------------
-
   if (!user) {
-    return <Navigate to="/" replace />
+    return <Navigate to="/login" replace />
   }
-
-  // ----------------------------------
-  // Onboarding has no Navbar
-  // ----------------------------------
 
   if (noNav) {
     return children
   }
 
-  // ----------------------------------
-  // Protected pages
-  // ----------------------------------
-
   return (
     <>
       <Navbar />
-
       <main>
         {children}
       </main>

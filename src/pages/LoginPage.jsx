@@ -1,21 +1,35 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import { Scale, AlertCircle } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 
 export default function LoginPage() {
-  const { signInWithGoogle } = useAuth()
+  const { signInWithGoogle, user, loading: authLoading, profileComplete } = useAuth()
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
   useEffect(() => { document.title = 'LegalEase — Sign In' }, [])
+
+  if (authLoading) {
+    return (
+      <div className="min-h-screen bg-[#f8f9fa] flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-10 h-10 border-4 border-[#1e3a5f] border-t-transparent rounded-full animate-spin" />
+          <p className="text-[#1e3a5f] text-sm font-medium">Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (user) {
+    return <Navigate to={profileComplete ? '/dashboard' : '/onboarding'} replace />
+  }
 
   async function handleGoogleLogin() {
     try {
       setLoading(true)
       setError(null)
       await signInWithGoogle()
-      // OAuth redirect takes over from here — no further action needed
     } catch (err) {
       setError('Could not sign in. Please try again.')
       setLoading(false)
@@ -25,10 +39,8 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col items-center justify-center px-4">
 
-      {/* Card */}
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-xl border border-gray-100 p-8 flex flex-col items-center text-center">
 
-        {/* Logo */}
         <Link to="/" className="flex items-center gap-2 mb-8">
           <div className="w-10 h-10 bg-[#1e3a5f] rounded-xl flex items-center justify-center">
             <Scale className="text-[#c9a84c] w-5 h-5" />
@@ -41,7 +53,6 @@ export default function LoginPage() {
           Sign in to your secure legal workspace
         </p>
 
-        {/* Error */}
         {error && (
           <div className="w-full flex items-center gap-2 bg-red-50 border border-red-200 text-red-700 text-sm rounded-lg px-4 py-3 mb-4">
             <AlertCircle className="w-4 h-4 shrink-0" />
@@ -49,7 +60,6 @@ export default function LoginPage() {
           </div>
         )}
 
-        {/* Google button */}
         <button
           onClick={handleGoogleLogin}
           disabled={loading}
@@ -71,7 +81,6 @@ export default function LoginPage() {
         </p>
       </div>
 
-      {/* Back link */}
       <Link to="/" className="mt-6 text-sm text-gray-400 hover:text-[#1e3a5f] transition-colors">
         ← Back to home
       </Link>

@@ -20,10 +20,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [userMenuOpen, setUserMenuOpen] = useState(false)
 
-  // Close drawer on route change
   useEffect(() => { setMobileOpen(false) }, [location.pathname])
 
-  // Lock body scroll when drawer open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -36,7 +34,7 @@ export default function Navbar() {
     try {
       await signOut()
       toast.success('Signed out')
-      navigate('/login')
+      // Navigation handled automatically by SIGNED_OUT event in AuthContext
     } catch {
       toast.error('Could not sign out. Try again.')
     }
@@ -51,7 +49,6 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">
 
-            {/* Logo */}
             <Link to="/dashboard" className="flex items-center gap-2 shrink-0">
               <div className="w-8 h-8 bg-[#c9a84c] rounded-lg flex items-center justify-center">
                 <Scale className="text-white w-4 h-4" />
@@ -59,7 +56,6 @@ export default function Navbar() {
               <span className="text-white font-bold text-lg tracking-tight">LegalEase</span>
             </Link>
 
-            {/* Desktop nav links */}
             <div className="hidden md:flex items-center gap-1 h-full">
               {NAV_LINKS.map(({ to, label, icon: Icon }) => (
                 <NavLink
@@ -75,7 +71,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Right side — desktop */}
             <div className="hidden md:flex items-center gap-2">
               <Link
                 to="/settings"
@@ -85,7 +80,6 @@ export default function Navbar() {
                 <Settings className="w-5 h-5" />
               </Link>
 
-              {/* User dropdown */}
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen(p => !p)}
@@ -125,7 +119,6 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Mobile hamburger */}
             <button
               className="md:hidden p-2 text-blue-200 hover:text-white rounded-lg hover:bg-white/10 transition-colors"
               onClick={() => setMobileOpen(p => !p)}
@@ -137,8 +130,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ── Mobile sliding drawer ── */}
-      {/* Backdrop */}
       <div
         className={`md:hidden fixed inset-0 bg-black/50 z-50 transition-opacity duration-300 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
@@ -147,13 +138,11 @@ export default function Navbar() {
         aria-hidden="true"
       />
 
-      {/* Drawer panel — slides in from right */}
       <div
         className={`md:hidden fixed top-0 right-0 h-full w-72 bg-[#142840] z-50 flex flex-col shadow-2xl transform transition-transform duration-300 ease-out overflow-y-auto ${
           mobileOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        {/* Drawer header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
           <Link to="/dashboard" className="flex items-center gap-2" onClick={() => setMobileOpen(false)}>
             <div className="w-7 h-7 bg-[#c9a84c] rounded-lg flex items-center justify-center">
@@ -170,7 +159,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* User info */}
         <div className="flex items-center gap-3 px-5 py-4 border-b border-white/10">
           <Avatar src={avatarUrl} name={displayName} size="lg" />
           <div className="min-w-0">
@@ -179,7 +167,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Nav links */}
         <nav className="px-3 py-4 space-y-1 flex-1">
           {NAV_LINKS.map(({ to, label, icon: Icon }) => (
             <NavLink
@@ -199,7 +186,6 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Bottom actions */}
         <div className="px-3 pb-6 pt-2 border-t border-white/10 space-y-1">
           <Link
             to="/settings"
