@@ -39,7 +39,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(initialUser)
   const [profile, setProfile] = useState(cachedProfile)
   const [profileComplete, setProfileComplete] = useState(Boolean(cachedProfile?.profile_complete))
-  const [loading, setLoading] = useState(!initialUser)
+  const [loading, setLoading] = useState(!(initialUser && Boolean(cachedProfile?.profile_complete)))
 
   const fetchProfile = useCallback(async (userId) => {
     const { data, error } = await supabase
