@@ -10,8 +10,28 @@ import { supabase } from '../lib/supabase'
 
 const AuthContext = createContext(null)
 
-// ─── Profile cache (localStorage) ────────────────────────────
+// ── Supabase session key in localStorage ──────────────────────
+const SB_SESSION_KEY = 'sb-tkchrwpyrwoyibpfdhfl-auth-token'
+
+// ── Profile cache key ─────────────────────────────────────────
 const PROFILE_CACHE_KEY = 'le_profile_cache'
+
+// Read the Supabase user SYNCHRONOUSLY from localStorage.
+// This lets us initialize user state before any async work,
+// so the component tree renders with user already set.
+function readUserFromStorage() {
+  try {
+    const raw = localStorage.getItem(SB_SESSION_KEY)
+    if (!raw) return null
+    const session = JSON.parse(raw)
+    if (!session?.access_token) return null
+    // If token is expired, don't use it (Supabase will refresh via INITIAL_SESSION)
+    if (session.expires_at && Date.now() / 1000 > session.expires_at) return null
+    return session.user ?? null
+  } catch {
+    return null
+  }
+}
 
 function getCachedProfile() {
   try {
@@ -28,42 +48,36 @@ function setCachedProfile(profile) {
     else localStorage.removeItem(PROFILE_CACHE_KEY)
   } catch {}
 }
-// ─────────────────────────────────────────────────────────────
 
 export function AuthProvider({ children }) {
   const navigate = useNavigate()
 
-  // Read cache SYNCHRONOUSLY so we can set loading=false immediately
-  // on return visits — user sees dashboard instantly, no spinner wait.
-  const cachedProfile = getCachedProfile()
+  // Read SYNCHRONOUSLY — these run before the first render
+  const initialUser    = readUserFromStorage()
+  const cachedProfile  = getCachedProfile()
 
-  const [user, setUser] = useState(null)
-  const [profile, setProfile] = useState(cachedProfile)
-  const [profileComplete, setProfileComplete] = useState(
-    Boolean(cachedProfile?.profile_complete)
-  )
-  // If we already have a cached profile, skip the loading spinner entirely
-  const [loading, setLoading] = useState(!cachedProfile)
+  // Initialize state with what we already know — no waiting
+  const [user,            setUser]            = useState(initialUser)
+  const [profile,         setProfile]         = useState(cachedProfile)
+  const [profileComplete, setProfileComplete] = useState(Boolean(cachedProfile?.profile_complete))
 
-  // ── Fetch profile from Supabase ────────────────────────────
+  // loading=false immediately if we have a user (even without profile)
+  // The dashboard renders fine with profile=null; profile fills in from cache or network.
+  const [loading, setLoading] = useState(!initialUser)
+
   const fetchProfile = useCallback(async (userId) => {
     const { data, error } = await supabase
       .from('lawyer_profiles')
       .select('*')
       .eq('user_id', userId)
       .maybeSingle()
-
     if (error) {
       console.error('Profile Error:', error)
       return null
     }
-
     return data
   }, [])
 
-  // ── Process a Supabase session ─────────────────────────────
-  // IMPORTANT: No location.pathname in deps — this must NOT
-  // be recreated on every navigation.
   const processSession = useCallback(
     async (session) => {
       if (!session?.user) {
@@ -75,38 +89,33 @@ export function AuthProvider({ children }) {
         return
       }
 
+      // Set user immediately — this is the gate for ProtectedRoute
       setUser(session.user)
 
-      // Show UI immediately using cached profile (zero network wait)
+      // Apply cache immediately so dashboard shows real data at once
       const cached = getCachedProfile()
       if (cached) {
         setProfile(cached)
         setProfileComplete(Boolean(cached.profile_complete))
-        setLoading(false)
       }
 
-      // Fetch fresh profile from network in the background
-      const profileData = await fetchProfile(session.user.id)
+      // loading=false as soon as user is known — do NOT wait for profile fetch
+      setLoading(false)
 
+      // Fetch fresh profile from network in the background (non-blocking)
+      const profileData = await fetchProfile(session.user.id)
       if (profileData) {
         setCachedProfile(profileData)
         setProfile(profileData)
         setProfileComplete(Boolean(profileData.profile_complete))
       }
-
-      // In case there was no cache, mark loading done now
-      setLoading(false)
     },
     [fetchProfile]
   )
 
-  // ── Auth state listener ────────────────────────────────────
   useEffect(() => {
-    // KEY FIX: Do NOT call getSession() / initializeAuth() manually here.
-    // supabase.auth.onAuthStateChange fires INITIAL_SESSION automatically
-    // when a session exists — calling getSession() as well causes
-    // processSession (and fetchProfile) to run TWICE, adding 1-2 seconds.
-
+    // Do NOT call getSession() here — INITIAL_SESSION covers it.
+    // Calling getSession() separately makes processSession run twice.
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
@@ -132,12 +141,9 @@ export function AuthProvider({ children }) {
       }
     })
 
-    return () => {
-      subscription.unsubscribe()
-    }
+    return () => subscription.unsubscribe()
   }, [processSession, navigate])
 
-  // ── Google OAuth ───────────────────────────────────────────
   const signInWithGoogle = useCallback(async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
@@ -149,20 +155,15 @@ export function AuthProvider({ children }) {
     if (error) throw error
   }, [])
 
-  // ── Sign out ───────────────────────────────────────────────
-  // Do NOT call navigate() here — SIGNED_OUT event above handles it.
-  // Calling navigate here too causes double navigation.
+  // Do NOT call navigate() here — SIGNED_OUT event handles it
   const signOut = useCallback(async () => {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
   }, [])
 
-  // ── Refresh profile (call after onboarding saves) ──────────
   const refreshProfile = useCallback(async () => {
     if (!user) return
-
     const profileData = await fetchProfile(user.id)
-
     if (profileData) {
       setCachedProfile(profileData)
       setProfile(profileData)
@@ -189,10 +190,6 @@ export function AuthProvider({ children }) {
 
 export function useAuth() {
   const context = useContext(AuthContext)
-
-  if (!context) {
-    throw new Error('useAuth must be used inside AuthProvider')
-  }
-
+  if (!context) throw new Error('useAuth must be used inside AuthProvider')
   return context
 }
