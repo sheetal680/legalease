@@ -87,32 +87,20 @@ export function AuthProvider({ children }) {
   }, [fetchProfile])
 
   useEffect(() => {
-    const isOAuthCallback = () =>
-      new URL(window.location.href).searchParams.has('code')
-
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         switch (event) {
 
           case 'INITIAL_SESSION':
-            // On the OAuth callback page (?code=...), INITIAL_SESSION fires with a
-            // null session before the code has been exchanged. Skip it so loading
-            // stays true — the SIGNED_IN event below handles everything.
-            if (isOAuthCallback()) break
             await processSession(session)
             break
 
           case 'SIGNED_IN': {
-            // Fires after the OAuth code exchange completes.
-            // We fetch profile here and navigate AFTER we have the confirmed value
-            // from DB — eliminating the race condition with LandingPage.
             const profileData = await processSession(session)
-            if (isOAuthCallback()) {
-              navigate(
-                profileData?.profile_complete ? '/dashboard' : '/onboarding',
-                { replace: true }
-              )
-            }
+            navigate(
+              profileData?.profile_complete ? '/dashboard' : '/onboarding',
+              { replace: true }
+            )
             break
           }
 
