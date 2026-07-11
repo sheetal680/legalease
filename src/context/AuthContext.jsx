@@ -108,6 +108,10 @@ export function AuthProvider({ children }) {
         setCachedProfile(profileData)
         setProfile(profileData)
         setProfileComplete(Boolean(profileData.profile_complete))
+      } else {
+        setCachedProfile(null)
+        setProfile(null)
+        setProfileComplete(false)
       }
     },
     [fetchProfile]
