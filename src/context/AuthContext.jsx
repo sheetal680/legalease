@@ -51,12 +51,13 @@ export function AuthProvider({ children }) {
     return data
   }, [])
 
-  // Returns confirmed profile data from DB (or null).
-  // try/finally guarantees setLoading(false) always fires.
   const processSession = useCallback(async (session) => {
     if (!session?.user) {
-      setUser(null); setProfile(null); setProfileComplete(false)
-      setCachedProfile(null); setLoading(false)
+      setUser(null)
+      setProfile(null)
+      setProfileComplete(false)
+      setCachedProfile(null)
+      setLoading(false)
       return null
     }
     try {
@@ -68,10 +69,13 @@ export function AuthProvider({ children }) {
       }
       const profileData = await fetchProfile(session.user.id)
       if (profileData) {
-        setCachedProfile(profileData); setProfile(profileData)
+        setCachedProfile(profileData)
+        setProfile(profileData)
         setProfileComplete(Boolean(profileData.profile_complete))
       } else {
-        setCachedProfile(null); setProfile(null); setProfileComplete(false)
+        setCachedProfile(null)
+        setProfile(null)
+        setProfileComplete(false)
       }
       return profileData
     } catch (err) {
@@ -83,7 +87,6 @@ export function AuthProvider({ children }) {
   }, [fetchProfile])
 
   useEffect(() => {
-    // True when we are on the Google OAuth callback page (/?code=...)
     const isOAuthCallback = () =>
       new URL(window.location.href).searchParams.has('code')
 
@@ -92,19 +95,18 @@ export function AuthProvider({ children }) {
         switch (event) {
 
           case 'INITIAL_SESSION':
-            // On the OAuth callback page, INITIAL_SESSION fires with a null session
-            // (the code hasn't been exchanged yet). Skipping it keeps loading=true
-            // so LandingPage cannot redirect before we know profileComplete.
-            // The SIGNED_IN event below handles everything once the exchange completes.
+            // On the OAuth callback page (?code=...), INITIAL_SESSION fires with a
+            // null session before the code has been exchanged. Skip it so loading
+            // stays true — the SIGNED_IN event below handles everything.
             if (isOAuthCallback()) break
             await processSession(session)
             break
 
           case 'SIGNED_IN': {
-            // Runs after the OAuth code exchange succeeds.
+            // Fires after the OAuth code exchange completes.
+            // We fetch profile here and navigate AFTER we have the confirmed value
+            // from DB — eliminating the race condition with LandingPage.
             const profileData = await processSession(session)
-            // Navigate here — after DB confirms profileComplete — not via LandingPage.
-            // This eliminates the race condition entirely.
             if (isOAuthCallback()) {
               navigate(
                 profileData?.profile_complete ? '/dashboard' : '/onboarding',
@@ -120,8 +122,11 @@ export function AuthProvider({ children }) {
             break
 
           case 'SIGNED_OUT':
-            setUser(null); setProfile(null); setProfileComplete(false)
-            setCachedProfile(null); setLoading(false)
+            setUser(null)
+            setProfile(null)
+            setProfileComplete(false)
+            setCachedProfile(null)
+            setLoading(false)
             navigate('/', { replace: true })
             break
 
@@ -136,7 +141,10 @@ export function AuthProvider({ children }) {
   const signInWithGoogle = useCallback(async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: `${window.location.origin}/`, skipBrowserRedirect: false },
+      options: {
+        redirectTo: `${window.location.origin}/`,
+        skipBrowserRedirect: false,
+      },
     })
     if (error) throw error
   }, [])
@@ -150,15 +158,21 @@ export function AuthProvider({ children }) {
     if (!user) return
     const profileData = await fetchProfile(user.id)
     if (profileData) {
-      setCachedProfile(profileData); setProfile(profileData)
+      setCachedProfile(profileData)
+      setProfile(profileData)
       setProfileComplete(Boolean(profileData.profile_complete))
     }
   }, [user, fetchProfile])
 
   return (
     <AuthContext.Provider value={{
-      user, profile, profileComplete, loading,
-      signInWithGoogle, signOut, refreshProfile,
+      user,
+      profile,
+      profileComplete,
+      loading,
+      signInWithGoogle,
+      signOut,
+      refreshProfile,
     }}>
       {children}
     </AuthContext.Provider>
