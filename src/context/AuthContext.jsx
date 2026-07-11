@@ -33,17 +33,12 @@ function setCachedProfile(profile) {
 
 export function AuthProvider({ children }) {
   const navigate = useNavigate()
-
-  // Read synchronously before first render so there is no flash
   const initialUser = readUserFromStorage()
   const cachedProfile = getCachedProfile()
 
   const [user, setUser] = useState(initialUser)
   const [profile, setProfile] = useState(cachedProfile)
-  const [profileComplete, setProfileComplete] = useState(
-    Boolean(cachedProfile?.profile_complete)
-  )
-  // If we already have a user from storage, skip the loading spinner
+  const [profileComplete, setProfileComplete] = useState(Boolean(cachedProfile?.profile_complete))
   const [loading, setLoading] = useState(!initialUser)
 
   const fetchProfile = useCallback(async (userId) => {
@@ -56,62 +51,80 @@ export function AuthProvider({ children }) {
     return data
   }, [])
 
-  // processSession: called for INITIAL_SESSION, SIGNED_IN, TOKEN_REFRESHED, USER_UPDATED
-  // IMPORTANT: setLoading(false) is called AFTER the DB fetch — never before.
-  // This prevents the race condition where LandingPage redirects with profileComplete=false.
+  // Returns confirmed profile data from DB (or null).
+  // try/finally guarantees setLoading(false) always fires.
   const processSession = useCallback(async (session) => {
     if (!session?.user) {
-      setUser(null)
-      setProfile(null)
-      setProfileComplete(false)
-      setCachedProfile(null)
+      setUser(null); setProfile(null); setProfileComplete(false)
+      setCachedProfile(null); setLoading(false)
+      return null
+    }
+    try {
+      setUser(session.user)
+      const cached = getCachedProfile()
+      if (cached) {
+        setProfile(cached)
+        setProfileComplete(Boolean(cached.profile_complete))
+      }
+      const profileData = await fetchProfile(session.user.id)
+      if (profileData) {
+        setCachedProfile(profileData); setProfile(profileData)
+        setProfileComplete(Boolean(profileData.profile_complete))
+      } else {
+        setCachedProfile(null); setProfile(null); setProfileComplete(false)
+      }
+      return profileData
+    } catch (err) {
+      console.error('processSession error:', err)
+      return null
+    } finally {
       setLoading(false)
-      return
     }
-
-    setUser(session.user)
-
-    // Show cached data instantly while the real fetch is in flight
-    const cached = getCachedProfile()
-    if (cached) {
-      setProfile(cached)
-      setProfileComplete(Boolean(cached.profile_complete))
-    }
-
-    // Wait for the real DB value — only then set loading=false and profileComplete
-    const profileData = await fetchProfile(session.user.id)
-
-    if (profileData) {
-      setCachedProfile(profileData)
-      setProfile(profileData)
-      setProfileComplete(Boolean(profileData.profile_complete))
-    } else {
-      setCachedProfile(null)
-      setProfile(null)
-      setProfileComplete(false)
-    }
-
-    setLoading(false) // ← ONLY here, after DB confirms profileComplete
   }, [fetchProfile])
 
   useEffect(() => {
+    // True when we are on the Google OAuth callback page (/?code=...)
+    const isOAuthCallback = () =>
+      new URL(window.location.href).searchParams.has('code')
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         switch (event) {
+
           case 'INITIAL_SESSION':
-          case 'SIGNED_IN':
+            // On the OAuth callback page, INITIAL_SESSION fires with a null session
+            // (the code hasn't been exchanged yet). Skipping it keeps loading=true
+            // so LandingPage cannot redirect before we know profileComplete.
+            // The SIGNED_IN event below handles everything once the exchange completes.
+            if (isOAuthCallback()) break
+            await processSession(session)
+            break
+
+          case 'SIGNED_IN': {
+            // Runs after the OAuth code exchange succeeds.
+            const profileData = await processSession(session)
+            // Navigate here — after DB confirms profileComplete — not via LandingPage.
+            // This eliminates the race condition entirely.
+            if (isOAuthCallback()) {
+              navigate(
+                profileData?.profile_complete ? '/dashboard' : '/onboarding',
+                { replace: true }
+              )
+            }
+            break
+          }
+
           case 'TOKEN_REFRESHED':
           case 'USER_UPDATED':
             await processSession(session)
             break
+
           case 'SIGNED_OUT':
-            setUser(null)
-            setProfile(null)
-            setProfileComplete(false)
-            setCachedProfile(null)
-            setLoading(false)
+            setUser(null); setProfile(null); setProfileComplete(false)
+            setCachedProfile(null); setLoading(false)
             navigate('/', { replace: true })
             break
+
           default:
             break
         }
@@ -123,10 +136,7 @@ export function AuthProvider({ children }) {
   const signInWithGoogle = useCallback(async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: {
-        redirectTo: `${window.location.origin}/`,
-        skipBrowserRedirect: false,
-      },
+      options: { redirectTo: `${window.location.origin}/`, skipBrowserRedirect: false },
     })
     if (error) throw error
   }, [])
@@ -140,21 +150,15 @@ export function AuthProvider({ children }) {
     if (!user) return
     const profileData = await fetchProfile(user.id)
     if (profileData) {
-      setCachedProfile(profileData)
-      setProfile(profileData)
+      setCachedProfile(profileData); setProfile(profileData)
       setProfileComplete(Boolean(profileData.profile_complete))
     }
   }, [user, fetchProfile])
 
   return (
     <AuthContext.Provider value={{
-      user,
-      profile,
-      profileComplete,
-      loading,
-      signInWithGoogle,
-      signOut,
-      refreshProfile,
+      user, profile, profileComplete, loading,
+      signInWithGoogle, signOut, refreshProfile,
     }}>
       {children}
     </AuthContext.Provider>
