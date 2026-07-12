@@ -12,6 +12,7 @@ import DashboardPage from './pages/DashboardPage'
 import Templates from './pages/Templates'
 import Editor from './pages/Editor'
 import Cases from './pages/Cases'
+import LawyersPage from './pages/LawyersPage'
 import SettingsPage from './pages/SettingsPage'
 
 const SKIP_ROUTES = new Set(['/', '/login', '/auth/callback', '/onboarding'])
@@ -104,6 +105,15 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <Cases />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/lawyers"
+            element={
+              <ProtectedRoute>
+                <LawyersPage />
               </ProtectedRoute>
             }
           />
