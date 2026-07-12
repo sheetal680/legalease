@@ -53,25 +53,36 @@ export function AuthProvider({ children }) {
 
   const processSession = useCallback(async (session) => {
     if (!session?.user) {
-      setUser(null); setProfile(null); setProfileComplete(false)
-      setCachedProfile(null); setLoading(false); return null
+      setUser(null)
+      setProfile(null)
+      setProfileComplete(false)
+      setCachedProfile(null)
+      setLoading(false)
+      return null
     }
     try {
       setUser(session.user)
       const cached = getCachedProfile()
-      if (cached) { setProfile(cached); setProfileComplete(Boolean(cached.profile_complete)) }
+      if (cached) {
+        setProfile(cached)
+        setProfileComplete(Boolean(cached.profile_complete))
+      }
       const profileData = await fetchProfile(session.user.id)
       if (profileData) {
-        setCachedProfile(profileData); setProfile(profileData)
+        setCachedProfile(profileData)
+        setProfile(profileData)
         setProfileComplete(Boolean(profileData.profile_complete))
       } else {
-        setCachedProfile(null); setProfile(null); setProfileComplete(false)
+        setCachedProfile(null)
+        setProfile(null)
+        setProfileComplete(false)
       }
       return profileData
     } catch (err) {
-      console.error('processSession error:', err); return null
+      console.error('processSession error:', err)
+      return null
     } finally {
-      setLoading(false)  // ← ALWAYS runs, even on error — fixes the stuck spinner
+      setLoading(false)
     }
   }, [fetchProfile])
 
@@ -79,10 +90,14 @@ export function AuthProvider({ children }) {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       async (event, session) => {
         switch (event) {
+
           case 'INITIAL_SESSION':
             await processSession(session)
             break
+
           case 'SIGNED_IN': {
+            // IMPORTANT: Supabase v2 clears ?code= from the URL BEFORE firing
+            // SIGNED_IN, so we cannot check for the code here. Always navigate.
             const profileData = await processSession(session)
             navigate(
               profileData?.profile_complete ? '/dashboard' : '/onboarding',
@@ -90,15 +105,21 @@ export function AuthProvider({ children }) {
             )
             break
           }
+
           case 'TOKEN_REFRESHED':
           case 'USER_UPDATED':
             await processSession(session)
             break
+
           case 'SIGNED_OUT':
-            setUser(null); setProfile(null); setProfileComplete(false)
-            setCachedProfile(null); setLoading(false)
+            setUser(null)
+            setProfile(null)
+            setProfileComplete(false)
+            setCachedProfile(null)
+            setLoading(false)
             navigate('/', { replace: true })
             break
+
           default:
             break
         }
@@ -110,7 +131,10 @@ export function AuthProvider({ children }) {
   const signInWithGoogle = useCallback(async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: { redirectTo: `${window.location.origin}/` },
+      options: {
+        redirectTo: `${window.location.origin}/`,
+        skipBrowserRedirect: false,
+      },
     })
     if (error) throw error
   }, [])
@@ -124,13 +148,22 @@ export function AuthProvider({ children }) {
     if (!user) return
     const profileData = await fetchProfile(user.id)
     if (profileData) {
-      setCachedProfile(profileData); setProfile(profileData)
+      setCachedProfile(profileData)
+      setProfile(profileData)
       setProfileComplete(Boolean(profileData.profile_complete))
     }
   }, [user, fetchProfile])
 
   return (
-    <AuthContext.Provider value={{ user, profile, profileComplete, loading, signInWithGoogle, signOut, refreshProfile }}>
+    <AuthContext.Provider value={{
+      user,
+      profile,
+      profileComplete,
+      loading,
+      signInWithGoogle,
+      signOut,
+      refreshProfile,
+    }}>
       {children}
     </AuthContext.Provider>
   )
