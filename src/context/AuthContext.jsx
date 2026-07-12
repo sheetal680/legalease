@@ -41,14 +41,25 @@ export function AuthProvider({ children }) {
   const [profileComplete, setProfileComplete] = useState(Boolean(cachedProfile?.profile_complete))
   const [loading, setLoading] = useState(!(initialUser && Boolean(cachedProfile?.profile_complete)))
 
+  // Fetches the lawyer profile row. Hard 5-second timeout so a slow or
+  // unreachable DB never causes the spinner to hang forever.
   const fetchProfile = useCallback(async (userId) => {
-    const { data, error } = await supabase
-      .from('lawyer_profiles')
-      .select('*')
-      .eq('user_id', userId)
-      .maybeSingle()
-    if (error) { console.error('Profile fetch error:', error); return null }
-    return data
+    try {
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Profile fetch timed out after 5s')), 5000)
+      )
+      const fetchPromise = supabase
+        .from('lawyer_profiles')
+        .select('*')
+        .eq('user_id', userId)
+        .maybeSingle()
+      const { data, error } = await Promise.race([fetchPromise, timeoutPromise])
+      if (error) { console.error('Profile fetch error:', error); return null }
+      return data
+    } catch (err) {
+      console.error('fetchProfile failed:', err.message)
+      return null
+    }
   }, [])
 
   const processSession = useCallback(async (session) => {
@@ -92,12 +103,18 @@ export function AuthProvider({ children }) {
         switch (event) {
 
           case 'INITIAL_SESSION':
+            // During PKCE OAuth, INITIAL_SESSION fires with session=null while
+            // the async code exchange is still in flight. If we call
+            // processSession(null) now it sets loading=false too early.
+            // Stay in loading state; SIGNED_IN will fire once the exchange
+            // completes and navigation will happen from that handler.
+            if (!session && new URLSearchParams(window.location.search).has('code')) {
+              break
+            }
             await processSession(session)
             break
 
           case 'SIGNED_IN': {
-            // IMPORTANT: Supabase v2 clears ?code= from the URL BEFORE firing
-            // SIGNED_IN, so we cannot check for the code here. Always navigate.
             const profileData = await processSession(session)
             navigate(
               profileData?.profile_complete ? '/dashboard' : '/onboarding',
