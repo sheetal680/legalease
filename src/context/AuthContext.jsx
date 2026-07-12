@@ -111,21 +111,35 @@ export function AuthProvider({ children }) {
             if (!session && new URLSearchParams(window.location.search).has('code')) {
               break
             }
-            await processSession(session)
+            {
+              const profileData = await processSession(session)
+              // On a return visit, restore the last active route instead of /dashboard
+              if (profileData?.profile_complete) {
+                const lastRoute = localStorage.getItem('le_last_route')
+                if (lastRoute && lastRoute !== '/dashboard') {
+                  localStorage.removeItem('le_last_route')
+                  navigate(lastRoute, { replace: true })
+                }
+              }
+            }
             break
 
           case 'SIGNED_IN': {
             const profileData = await processSession(session)
-            navigate(
-              profileData?.profile_complete ? '/dashboard' : '/onboarding',
-              { replace: true }
-            )
+            // Only navigate on actual auth pages — never interrupt an active session
+            const AUTH_PAGES = ['/', '/login', '/auth/callback', '/onboarding']
+            if (AUTH_PAGES.includes(window.location.pathname)) {
+              navigate(
+                profileData?.profile_complete ? '/dashboard' : '/onboarding',
+                { replace: true }
+              )
+            }
             break
           }
 
           case 'TOKEN_REFRESHED':
           case 'USER_UPDATED':
-            await processSession(session)
+            // Background events — silently ignore, never redirect
             break
 
           case 'SIGNED_OUT':

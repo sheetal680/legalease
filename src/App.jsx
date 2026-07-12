@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 
 import { AuthProvider } from './context/AuthContext'
@@ -13,6 +13,16 @@ import Templates from './pages/Templates'
 import Editor from './pages/Editor'
 import Cases from './pages/Cases'
 import SettingsPage from './pages/SettingsPage'
+
+const SKIP_ROUTES = new Set(['/', '/login', '/auth/callback', '/onboarding'])
+
+function RouteTracker() {
+  const { pathname } = useLocation()
+  if (!SKIP_ROUTES.has(pathname)) {
+    try { localStorage.setItem('le_last_route', pathname) } catch {}
+  }
+  return null
+}
 
 export default function App() {
   return (
@@ -31,6 +41,7 @@ export default function App() {
           }}
         />
 
+        <RouteTracker />
         <Routes>
 
           {/* ---------- PUBLIC ---------- */}
