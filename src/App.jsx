@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 
 import LandingPage from './pages/LandingPage'
 import LoginPage from './pages/LoginPage'
+import AuthCallback from './pages/AuthCallback'
 import OnboardingPage from './pages/OnboardingPage'
 import DashboardPage from './pages/DashboardPage'
 import Templates from './pages/Templates'
@@ -42,6 +43,11 @@ export default function App() {
           <Route
             path="/login"
             element={<LoginPage />}
+          />
+
+          <Route
+            path="/auth/callback"
+            element={<AuthCallback />}
           />
 
           {/* ---------- PROTECTED ---------- */}
