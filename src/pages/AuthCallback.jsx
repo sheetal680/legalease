@@ -2,33 +2,24 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
-/**
- * Dedicated OAuth / PKCE callback page.
- *
- * Google now redirects to /auth/callback?code=… instead of /?code=…
- * This page shows a spinner and waits for AuthContext to resolve the
- * session (via INITIAL_SESSION or SIGNED_IN).  Once loading is false
- * and a user is available, it navigates to the correct destination.
- *
- * AuthContext's SIGNED_IN handler also calls navigate() independently,
- * so the user always reaches the right page even if one path is faster.
- */
 export default function AuthCallback() {
   const navigate = useNavigate()
   const { user, loading, profileComplete } = useAuth()
 
-  // Navigate as soon as AuthContext resolves the session
+  // If user is already logged in, redirect immediately.
+  // Do NOT navigate to /login when user=null and loading=false — the PKCE
+  // code exchange fires INITIAL_SESSION(null) before it completes, which sets
+  // loading=false while the exchange is still in flight.  AuthContext's own
+  // SIGNED_IN handler calls navigate() once the session is ready.
   useEffect(() => {
-    if (loading) return                          // still exchanging the code
+    if (loading) return
     if (user) {
       navigate(profileComplete ? '/dashboard' : '/onboarding', { replace: true })
     }
-    // loading=false + user=null → INITIAL_SESSION fired with null (code exchange
-    // still in flight).  SIGNED_IN will fire next; its AuthContext handler
-    // calls navigate() directly, so we just keep showing the spinner.
+    // No else — let AuthContext handle the post-PKCE navigation.
   }, [loading, user, profileComplete, navigate])
 
-  // Safety net: if nothing resolves in 15 s, bail to login
+  // Hard safety timeout — never stuck longer than 15s
   useEffect(() => {
     const t = setTimeout(() => navigate('/login', { replace: true }), 15_000)
     return () => clearTimeout(t)
