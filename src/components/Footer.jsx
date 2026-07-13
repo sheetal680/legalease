@@ -6,12 +6,12 @@ export default function Footer() {
         <span>
           Made with ♥ by{' '}
           <a
-            href="https://voxinta-website.vercel.app/"
+            href="https://www.filesure.in/company/arshit-technologies-private-limited/U62013TS2025PTC195098?tab=about"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#c9a84c] hover:text-[#e0c070] font-semibold transition-colors"
           >
-            Voxinta
+            ARSHIT TECHNOLOGIES PRIVATE LIMITED
           </a>
         </span>
       </div>
