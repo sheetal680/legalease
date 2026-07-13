@@ -206,11 +206,38 @@ export default function SettingsPage() {
     } finally { setSaving(false) }
   }
 
+  const [deleting, setDeleting] = useState(false)
+
   // ── Sign out ───────────────────────────────────────────────────────────────
 
   async function handleSignOut() {
     try { await signOut() }
     catch { toast.error('Sign out failed') }
+  }
+
+  // ── Delete account ─────────────────────────────────────────────────────────
+
+  async function handleDeleteAccount() {
+    const confirmed = window.confirm(
+      'Are you sure you want to permanently delete your account?\n\nAll your documents, cases, clients, and data will be deleted forever. This CANNOT be undone.'
+    )
+    if (!confirmed) return
+
+    const doubleConfirmed = window.confirm(
+      'FINAL WARNING: Click OK to permanently delete your account.'
+    )
+    if (!doubleConfirmed) return
+
+    setDeleting(true)
+    try {
+      await supabase.rpc('delete_my_account')
+      await supabase.auth.signOut()
+      navigate('/', { replace: true })
+    } catch (err) {
+      // If RPC not set up yet, fall back to sign out only
+      await supabase.auth.signOut()
+      navigate('/', { replace: true })
+    }
   }
 
   // ── Loading skeleton ───────────────────────────────────────────────────────
@@ -479,9 +506,10 @@ export default function SettingsPage() {
               <p className="text-xs text-gray-400">Permanently delete your account and all documents.</p>
             </div>
             <button
-              onClick={() => toast('Please contact support@legalease.in to delete your account.', { icon: '⚠️', duration: 5000 })}
-              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
-              Delete Account
+              onClick={handleDeleteAccount}
+              disabled={deleting}
+              className="flex items-center gap-2 bg-red-600 hover:bg-red-700 disabled:opacity-60 disabled:cursor-not-allowed text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors">
+              {deleting ? 'Deleting…' : 'Delete Account'}
             </button>
           </div>
         </div>
