@@ -20,8 +20,13 @@ import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminAddAdvocate from './pages/admin/AdminAddAdvocate'
 import AdminAddTemplate from './pages/admin/AdminAddTemplate'
 import AdvocateHome from './pages/AdvocateHome'
+import AdvocateAddAssociate from './pages/advocate/AdvocateAddAssociate'
+import AdvocateAddClient from './pages/advocate/AdvocateAddClient'
+import AdvocateChooseClient from './pages/advocate/AdvocateChooseClient'
+import AdvocateChooseTemplate from './pages/advocate/AdvocateChooseTemplate'
+import AdvocateTemplateEditor from './pages/advocate/AdvocateTemplateEditor'
 
-const SKIP_ROUTES = new Set(['/', '/login', '/auth/callback', '/onboarding'])
+const SKIP_ROUTES = new Set(['/', '/login', '/auth/callback', '/onboarding', '/advocate/editor'])
 
 function AdminRoute({ children }) {
   const { user, role, loading } = useAuth()
@@ -177,6 +182,30 @@ export default function App() {
 
           <Route
             path="/advocate-home"
+            element={<AdvocateRoute><AdvocateHome /></AdvocateRoute>}
+          />
+          <Route
+            path="/advocate/add-associate"
+            element={<AdvocateRoute><AdvocateAddAssociate /></AdvocateRoute>}
+          />
+          <Route
+            path="/advocate/add-client"
+            element={<AdvocateRoute><AdvocateAddClient /></AdvocateRoute>}
+          />
+          <Route
+            path="/advocate/clients"
+            element={<AdvocateRoute><AdvocateChooseClient /></AdvocateRoute>}
+          />
+          <Route
+            path="/advocate/templates"
+            element={<AdvocateRoute><AdvocateChooseTemplate /></AdvocateRoute>}
+          />
+          <Route
+            path="/advocate/editor"
+            element={<AdvocateRoute><AdvocateTemplateEditor /></AdvocateRoute>}
+          />
+          <Route
+            path="/advocate/documents"
             element={<AdvocateRoute><AdvocateHome /></AdvocateRoute>}
           />
 
