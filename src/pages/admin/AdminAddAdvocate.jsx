@@ -4,7 +4,7 @@ import { UserPlus, Loader2 } from 'lucide-react'
 import AdminLayout from './AdminLayout'
 import { supabase } from '../../lib/supabase'
 
-const EMPTY = { name: '', bar_council_number: '', email: '', password: '' }
+const EMPTY = { name: '', bar_council_number: '' }
 
 export default function AdminAddAdvocate() {
   const [form, setForm]       = useState(EMPTY)
@@ -16,25 +16,20 @@ export default function AdminAddAdvocate() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const { name, bar_council_number, email, password } = form
+    const { name, bar_council_number } = form
 
-    if (!name.trim() || !bar_council_number.trim() || !email.trim() || !password) {
-      toast.error('All fields are required.')
-      return
-    }
-    if (password.length < 8) {
-      toast.error('Password must be at least 8 characters.')
+    if (!name.trim() || !bar_council_number.trim()) {
+      toast.error('Both fields are required.')
       return
     }
 
     setLoading(true)
     try {
-      const { data, error } = await supabase.functions.invoke('create-advocate', {
-        body: { name: name.trim(), bar_council_number: bar_council_number.trim(), email: email.trim(), password },
-      })
+      const { error } = await supabase
+        .from('advocates')
+        .insert({ name: name.trim(), bar_council_number: bar_council_number.trim() })
 
       if (error) throw error
-      if (data?.error) throw new Error(data.error)
 
       toast.success('Advocate added successfully!')
       setForm(EMPTY)
@@ -48,6 +43,7 @@ export default function AdminAddAdvocate() {
   return (
     <AdminLayout>
       <div className="max-w-lg">
+
         {/* Page header */}
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 bg-[#c9a84c]/10 rounded-xl flex items-center justify-center">
@@ -55,11 +51,11 @@ export default function AdminAddAdvocate() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-[#1e3a5f]">Add Advocate</h1>
-            <p className="text-gray-400 text-sm">Create a new advocate login account.</p>
+            <p className="text-gray-400 text-sm">Register a new advocate on the platform.</p>
           </div>
         </div>
 
-        {/* Form card */}
+        {/* Form */}
         <form
           onSubmit={handleSubmit}
           className="bg-white border-2 border-gray-100 rounded-2xl p-6 shadow-sm space-y-5"
@@ -82,25 +78,6 @@ export default function AdminAddAdvocate() {
             disabled={loading}
             required
           />
-          <Field
-            label="Email Address"
-            type="email"
-            placeholder="advocate@example.com"
-            value={form.email}
-            onChange={set('email')}
-            disabled={loading}
-            required
-          />
-          <Field
-            label="Initial Password"
-            type="password"
-            placeholder="Minimum 8 characters"
-            value={form.password}
-            onChange={set('password')}
-            disabled={loading}
-            required
-            hint="The advocate can change this after their first login."
-          />
 
           <button
             type="submit"
@@ -111,12 +88,13 @@ export default function AdminAddAdvocate() {
             {loading ? 'Adding Advocate…' : 'Add Advocate'}
           </button>
         </form>
+
       </div>
     </AdminLayout>
   )
 }
 
-function Field({ label, hint, ...props }) {
+function Field({ label, ...props }) {
   return (
     <div>
       <label className="block text-xs font-bold text-[#1e3a5f] uppercase tracking-wider mb-1.5">
@@ -126,7 +104,6 @@ function Field({ label, hint, ...props }) {
         {...props}
         className="w-full text-sm px-4 py-3 border-2 border-gray-200 rounded-xl outline-none focus:border-[#1e3a5f] transition-colors placeholder-gray-400 disabled:opacity-60 disabled:bg-gray-50"
       />
-      {hint && <p className="mt-1.5 text-xs text-gray-400">{hint}</p>}
     </div>
   )
 }
