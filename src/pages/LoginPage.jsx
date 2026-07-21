@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { Scale, AlertCircle } from 'lucide-react'
+import toast from 'react-hot-toast'
 import { useAuth } from '../context/AuthContext'
 
 export default function LoginPage() {
-  const { signInWithGoogle, user, loading: authLoading, profileComplete } = useAuth()
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const { signInWithGoogle, signInWithEmail, user, loading: authLoading, profileComplete, role } = useAuth()
+  const [googleLoading, setGoogleLoading] = useState(false)
+  const [emailLoading, setEmailLoading]   = useState(false)
+  const [error, setError]                 = useState(null)
+  const [email, setEmail]                 = useState('')
+  const [password, setPassword]           = useState('')
 
   useEffect(() => { document.title = 'LegalEase — Sign In' }, [])
 
@@ -19,19 +23,40 @@ export default function LoginPage() {
   }
 
   if (user) {
+    if (role === 'admin') return <Navigate to="/admin" replace />
+    if (role === 'advocate') return <Navigate to="/advocate-home" replace />
     return <Navigate to={profileComplete ? '/dashboard' : '/onboarding'} replace />
   }
 
   async function handleGoogleLogin() {
     try {
-      setLoading(true)
+      setGoogleLoading(true)
       setError(null)
       await signInWithGoogle()
-    } catch (err) {
+    } catch {
       setError('Could not sign in. Please try again.')
-      setLoading(false)
+      setGoogleLoading(false)
     }
   }
+
+  async function handleEmailLogin(e) {
+    e.preventDefault()
+    if (!email || !password) {
+      setError('Please enter your email and password.')
+      return
+    }
+    try {
+      setEmailLoading(true)
+      setError(null)
+      await signInWithEmail(email, password)
+      // Navigation is handled by onAuthStateChange SIGNED_IN handler
+    } catch (err) {
+      toast.error(err.message || 'Invalid email or password.')
+      setEmailLoading(false)
+    }
+  }
+
+  const anyLoading = googleLoading || emailLoading
 
   return (
     <div className="min-h-screen bg-[#f8f9fa] flex flex-col items-center justify-center px-4">
@@ -57,18 +82,58 @@ export default function LoginPage() {
           </div>
         )}
 
+        {/* ── Google OAuth ── */}
         <button
           onClick={handleGoogleLogin}
-          disabled={loading}
+          disabled={anyLoading}
           className="w-full flex items-center justify-center gap-3 border-2 border-gray-200 hover:border-[#1e3a5f] bg-white hover:bg-gray-50 text-[#1e3a5f] font-semibold text-sm py-3.5 px-4 rounded-xl transition-all disabled:opacity-60 disabled:cursor-not-allowed shadow-sm"
         >
-          {loading ? (
+          {googleLoading ? (
             <span className="w-5 h-5 border-2 border-[#1e3a5f] border-t-transparent rounded-full animate-spin" />
           ) : (
             <GoogleIcon />
           )}
-          {loading ? 'Signing in…' : 'Continue with Google'}
+          {googleLoading ? 'Signing in…' : 'Continue with Google'}
         </button>
+
+        {/* ── Divider ── */}
+        <div className="w-full flex items-center gap-3 my-5">
+          <div className="flex-1 h-px bg-gray-200" />
+          <span className="text-xs text-gray-400 font-medium">or</span>
+          <div className="flex-1 h-px bg-gray-200" />
+        </div>
+
+        {/* ── Email / Password ── */}
+        <form onSubmit={handleEmailLogin} className="w-full flex flex-col gap-3">
+          <input
+            type="email"
+            placeholder="Email address"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            disabled={anyLoading}
+            autoComplete="email"
+            className="w-full text-sm px-4 py-3 border-2 border-gray-200 rounded-xl outline-none focus:border-[#1e3a5f] transition-colors placeholder-gray-400 disabled:opacity-60"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            disabled={anyLoading}
+            autoComplete="current-password"
+            className="w-full text-sm px-4 py-3 border-2 border-gray-200 rounded-xl outline-none focus:border-[#1e3a5f] transition-colors placeholder-gray-400 disabled:opacity-60"
+          />
+          <button
+            type="submit"
+            disabled={anyLoading}
+            className="w-full bg-[#1e3a5f] hover:bg-[#142840] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm py-3.5 rounded-xl transition-colors flex items-center justify-center gap-2 mt-1"
+          >
+            {emailLoading ? (
+              <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+            ) : null}
+            {emailLoading ? 'Signing in…' : 'Sign In'}
+          </button>
+        </form>
 
         <p className="mt-8 text-xs text-gray-400 leading-relaxed">
           By signing in you agree to our{' '}

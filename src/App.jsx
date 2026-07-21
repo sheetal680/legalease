@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import { Toaster } from 'react-hot-toast'
 
 import { AuthProvider } from './context/AuthContext'
+import { useAuth } from './context/AuthContext'
 import ProtectedRoute from './components/ProtectedRoute'
 
 import LandingPage from './pages/LandingPage'
@@ -15,8 +16,28 @@ import Cases from './pages/Cases'
 import LawyersPage from './pages/LawyersPage'
 import ClientsPage from './pages/ClientsPage'
 import SettingsPage from './pages/SettingsPage'
+import AdminDashboard from './pages/admin/AdminDashboard'
+import AdminAddAdvocate from './pages/admin/AdminAddAdvocate'
+import AdminAddTemplate from './pages/admin/AdminAddTemplate'
+import AdvocateHome from './pages/AdvocateHome'
 
 const SKIP_ROUTES = new Set(['/', '/login', '/auth/callback', '/onboarding'])
+
+function AdminRoute({ children }) {
+  const { user, role, loading } = useAuth()
+  if (loading) return null
+  if (!user) return <Navigate to="/login" replace />
+  if (role !== 'admin') return <Navigate to="/" replace />
+  return children
+}
+
+function AdvocateRoute({ children }) {
+  const { user, role, loading } = useAuth()
+  if (loading) return null
+  if (!user) return <Navigate to="/login" replace />
+  if (role !== 'advocate') return <Navigate to="/" replace />
+  return children
+}
 
 function RouteTracker() {
   const { pathname } = useLocation()
@@ -135,6 +156,28 @@ export default function App() {
                 <SettingsPage />
               </ProtectedRoute>
             }
+          />
+
+          {/* ---------- ADMIN ---------- */}
+
+          <Route
+            path="/admin"
+            element={<AdminRoute><AdminDashboard /></AdminRoute>}
+          />
+          <Route
+            path="/admin/add-advocate"
+            element={<AdminRoute><AdminAddAdvocate /></AdminRoute>}
+          />
+          <Route
+            path="/admin/add-template"
+            element={<AdminRoute><AdminAddTemplate /></AdminRoute>}
+          />
+
+          {/* ---------- ADVOCATE ---------- */}
+
+          <Route
+            path="/advocate-home"
+            element={<AdvocateRoute><AdvocateHome /></AdvocateRoute>}
           />
 
           {/* ---------- FALLBACK ---------- */}

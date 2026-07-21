@@ -5,6 +5,7 @@ import { supabase } from '../lib/supabase'
 const AuthContext = createContext(null)
 const SB_SESSION_KEY = 'sb-tkchrwpyrwoyibpfdhfl-auth-token'
 const PROFILE_CACHE_KEY = 'le_profile_cache'
+const ROLE_CACHE_KEY = 'le_role_cache'
 
 function readUserFromStorage() {
   try {
@@ -31,18 +32,29 @@ function setCachedProfile(profile) {
   } catch {}
 }
 
+function getCachedRole() {
+  try { return localStorage.getItem(ROLE_CACHE_KEY) || null } catch { return null }
+}
+
+function setCachedRole(role) {
+  try {
+    if (role) localStorage.setItem(ROLE_CACHE_KEY, role)
+    else localStorage.removeItem(ROLE_CACHE_KEY)
+  } catch {}
+}
+
 export function AuthProvider({ children }) {
   const navigate = useNavigate()
   const initialUser = readUserFromStorage()
   const cachedProfile = getCachedProfile()
 
-  const [user, setUser] = useState(initialUser)
-  const [profile, setProfile] = useState(cachedProfile)
+  const [user, setUser]                   = useState(initialUser)
+  const [profile, setProfile]             = useState(cachedProfile)
   const [profileComplete, setProfileComplete] = useState(Boolean(cachedProfile?.profile_complete))
-  const [loading, setLoading] = useState(!(initialUser && Boolean(cachedProfile?.profile_complete)))
+  const [role, setRole]                   = useState(getCachedRole)
+  const [loading, setLoading]             = useState(!(initialUser && Boolean(cachedProfile?.profile_complete)))
 
-  // Fetches the lawyer profile row. Hard 5-second timeout so a slow or
-  // unreachable DB never causes the spinner to hang forever.
+  // Fetches lawyer profile with a 5-second timeout
   const fetchProfile = useCallback(async (userId) => {
     try {
       const timeoutPromise = new Promise((_, reject) =>
@@ -62,23 +74,58 @@ export function AuthProvider({ children }) {
     }
   }, [])
 
+  // Fetches the user's role from user_roles table
+  const fetchRole = useCallback(async (userId) => {
+    try {
+      const { data, error } = await supabase
+        .from('user_roles')
+        .select('role')
+        .eq('user_id', userId)
+        .maybeSingle()
+      if (error) { console.error('Role fetch error:', error); return null }
+      return data?.role ?? null
+    } catch (err) {
+      console.error('fetchRole failed:', err.message)
+      return null
+    }
+  }, [])
+
+  // Determines redirect path after a fresh login based on role + profile
+  function resolvePostLoginRoute(userRole, profileData) {
+    if (userRole === 'admin') return '/admin'
+    if (userRole === 'advocate') return '/advocate-home'
+    return profileData?.profile_complete ? '/dashboard' : '/onboarding'
+  }
+
   const processSession = useCallback(async (session) => {
     if (!session?.user) {
       setUser(null)
       setProfile(null)
       setProfileComplete(false)
+      setRole(null)
       setCachedProfile(null)
+      setCachedRole(null)
       setLoading(false)
-      return null
+      return { profileData: null, userRole: null }
     }
     try {
       setUser(session.user)
+
+      // Restore from cache immediately so UI isn't blank
       const cached = getCachedProfile()
       if (cached) {
         setProfile(cached)
         setProfileComplete(Boolean(cached.profile_complete))
       }
-      const profileData = await fetchProfile(session.user.id)
+      const cachedR = getCachedRole()
+      if (cachedR) setRole(cachedR)
+
+      // Fetch both in parallel
+      const [profileData, userRole] = await Promise.all([
+        fetchProfile(session.user.id),
+        fetchRole(session.user.id),
+      ])
+
       if (profileData) {
         setCachedProfile(profileData)
         setProfile(profileData)
@@ -88,14 +135,18 @@ export function AuthProvider({ children }) {
         setProfile(null)
         setProfileComplete(false)
       }
-      return profileData
+
+      setCachedRole(userRole)
+      setRole(userRole)
+
+      return { profileData, userRole }
     } catch (err) {
       console.error('processSession error:', err)
-      return null
+      return { profileData: null, userRole: null }
     } finally {
       setLoading(false)
     }
-  }, [fetchProfile])
+  }, [fetchProfile, fetchRole])
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -103,17 +154,11 @@ export function AuthProvider({ children }) {
         switch (event) {
 
           case 'INITIAL_SESSION':
-            // During PKCE OAuth, INITIAL_SESSION fires with session=null while
-            // the async code exchange is still in flight. If we call
-            // processSession(null) now it sets loading=false too early.
-            // Stay in loading state; SIGNED_IN will fire once the exchange
-            // completes and navigation will happen from that handler.
             if (!session && new URLSearchParams(window.location.search).has('code')) {
               break
             }
             {
-              const profileData = await processSession(session)
-              // On a return visit, restore the last active route instead of /dashboard
+              const { profileData } = await processSession(session)
               if (profileData?.profile_complete) {
                 const lastRoute = localStorage.getItem('le_last_route')
                 if (lastRoute && lastRoute !== '/dashboard') {
@@ -125,28 +170,25 @@ export function AuthProvider({ children }) {
             break
 
           case 'SIGNED_IN': {
-            const profileData = await processSession(session)
-            // Only navigate on actual auth pages — never interrupt an active session
+            const { profileData, userRole } = await processSession(session)
             const AUTH_PAGES = ['/', '/login', '/auth/callback', '/onboarding']
             if (AUTH_PAGES.includes(window.location.pathname)) {
-              navigate(
-                profileData?.profile_complete ? '/dashboard' : '/onboarding',
-                { replace: true }
-              )
+              navigate(resolvePostLoginRoute(userRole, profileData), { replace: true })
             }
             break
           }
 
           case 'TOKEN_REFRESHED':
           case 'USER_UPDATED':
-            // Background events — silently ignore, never redirect
             break
 
           case 'SIGNED_OUT':
             setUser(null)
             setProfile(null)
             setProfileComplete(false)
+            setRole(null)
             setCachedProfile(null)
+            setCachedRole(null)
             setLoading(false)
             navigate('/', { replace: true })
             break
@@ -170,6 +212,11 @@ export function AuthProvider({ children }) {
     if (error) throw error
   }, [])
 
+  const signInWithEmail = useCallback(async (email, password) => {
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) throw error
+  }, [])
+
   const signOut = useCallback(async () => {
     const { error } = await supabase.auth.signOut()
     if (error) throw error
@@ -190,8 +237,10 @@ export function AuthProvider({ children }) {
       user,
       profile,
       profileComplete,
+      role,
       loading,
       signInWithGoogle,
+      signInWithEmail,
       signOut,
       refreshProfile,
     }}>
