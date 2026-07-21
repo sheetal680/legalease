@@ -2,7 +2,7 @@ import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { UserPlus, Loader2 } from 'lucide-react'
 import AdminLayout from './AdminLayout'
-import { supabase } from '../../../lib/supabase'
+import { supabase } from '../../lib/supabase'
 
 const EMPTY = { name: '', bar_council_number: '', email: '', password: '' }
 

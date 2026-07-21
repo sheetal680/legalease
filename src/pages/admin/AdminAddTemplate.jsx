@@ -5,7 +5,7 @@ import Underline from '@tiptap/extension-underline'
 import toast from 'react-hot-toast'
 import { Bold, Italic, Underline as UnderlineIcon, List, ListOrdered, Loader2, FileText } from 'lucide-react'
 import AdminLayout from './AdminLayout'
-import { supabase } from '../../../lib/supabase'
+import { supabase } from '../../lib/supabase'
 import { useAuth } from '../../context/AuthContext'
 
 const PLACEHOLDERS = [
