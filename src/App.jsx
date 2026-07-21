@@ -19,28 +19,14 @@ import SettingsPage from './pages/SettingsPage'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminAddAdvocate from './pages/admin/AdminAddAdvocate'
 import AdminAddTemplate from './pages/admin/AdminAddTemplate'
-import AdvocateHome from './pages/AdvocateHome'
-import AdvocateAddAssociate from './pages/advocate/AdvocateAddAssociate'
-import AdvocateAddClient from './pages/advocate/AdvocateAddClient'
-import AdvocateChooseClient from './pages/advocate/AdvocateChooseClient'
-import AdvocateChooseTemplate from './pages/advocate/AdvocateChooseTemplate'
-import AdvocateTemplateEditor from './pages/advocate/AdvocateTemplateEditor'
 
-const SKIP_ROUTES = new Set(['/', '/login', '/auth/callback', '/onboarding', '/advocate/editor'])
+const SKIP_ROUTES = new Set(['/', '/login', '/auth/callback', '/onboarding'])
 
 function AdminRoute({ children }) {
   const { user, role, loading } = useAuth()
   if (loading) return null
   if (!user) return <Navigate to="/login" replace />
   if (role !== 'admin') return <Navigate to="/" replace />
-  return children
-}
-
-function AdvocateRoute({ children }) {
-  const { user, role, loading } = useAuth()
-  if (loading) return null
-  if (!user) return <Navigate to="/login" replace />
-  if (role !== 'advocate') return <Navigate to="/" replace />
   return children
 }
 
@@ -176,37 +162,6 @@ export default function App() {
           <Route
             path="/admin/add-template"
             element={<AdminRoute><AdminAddTemplate /></AdminRoute>}
-          />
-
-          {/* ---------- ADVOCATE ---------- */}
-
-          <Route
-            path="/advocate-home"
-            element={<AdvocateRoute><AdvocateHome /></AdvocateRoute>}
-          />
-          <Route
-            path="/advocate/add-associate"
-            element={<AdvocateRoute><AdvocateAddAssociate /></AdvocateRoute>}
-          />
-          <Route
-            path="/advocate/add-client"
-            element={<AdvocateRoute><AdvocateAddClient /></AdvocateRoute>}
-          />
-          <Route
-            path="/advocate/clients"
-            element={<AdvocateRoute><AdvocateChooseClient /></AdvocateRoute>}
-          />
-          <Route
-            path="/advocate/templates"
-            element={<AdvocateRoute><AdvocateChooseTemplate /></AdvocateRoute>}
-          />
-          <Route
-            path="/advocate/editor"
-            element={<AdvocateRoute><AdvocateTemplateEditor /></AdvocateRoute>}
-          />
-          <Route
-            path="/advocate/documents"
-            element={<AdvocateRoute><AdvocateHome /></AdvocateRoute>}
           />
 
           {/* ---------- FALLBACK ---------- */}
