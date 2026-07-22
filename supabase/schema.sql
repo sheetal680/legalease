@@ -89,15 +89,44 @@ CREATE TABLE subscriptions (
 );
 
 
+-- ------------------------------------------------------------
+-- user_roles
+-- Stores platform roles (admin / advocate) for auth users.
+-- Created by the create-advocate edge function (service role).
+-- ------------------------------------------------------------
+CREATE TABLE user_roles (
+  id                 UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id            UUID        REFERENCES auth.users(id) ON DELETE CASCADE UNIQUE,
+  role               TEXT        NOT NULL CHECK (role IN ('admin', 'advocate')),
+  name               TEXT,
+  bar_council_number TEXT,
+  created_at         TIMESTAMPTZ DEFAULT NOW()
+);
+
+
+-- ------------------------------------------------------------
+-- admin_templates
+-- Document templates created by admins for advocates to use.
+-- ------------------------------------------------------------
+CREATE TABLE admin_templates (
+  id         UUID        PRIMARY KEY DEFAULT gen_random_uuid(),
+  name       TEXT        NOT NULL,
+  content    TEXT        NOT NULL,
+  created_by UUID        REFERENCES auth.users(id) ON DELETE SET NULL,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+
 -- ============================================================
 -- Row Level Security
 -- ============================================================
 
-ALTER TABLE lawyer_profiles ENABLE ROW LEVEL SECURITY;
-ALTER TABLE documents        ENABLE ROW LEVEL SECURITY;
-ALTER TABLE subscriptions    ENABLE ROW LEVEL SECURITY;
--- templates has no RLS; access is controlled by the SELECT policy below.
-ALTER TABLE templates        ENABLE ROW LEVEL SECURITY;
+ALTER TABLE lawyer_profiles  ENABLE ROW LEVEL SECURITY;
+ALTER TABLE documents         ENABLE ROW LEVEL SECURITY;
+ALTER TABLE subscriptions     ENABLE ROW LEVEL SECURITY;
+ALTER TABLE templates         ENABLE ROW LEVEL SECURITY;
+ALTER TABLE user_roles        ENABLE ROW LEVEL SECURITY;
+ALTER TABLE admin_templates   ENABLE ROW LEVEL SECURITY;
 
 
 -- ------------------------------------------------------------
@@ -127,6 +156,28 @@ CREATE POLICY "Authenticated users can read templates"
   ON templates
   FOR SELECT
   USING (auth.role() = 'authenticated');
+
+-- Each user can read their own role; edge function writes via service role
+CREATE POLICY "Users can read own role"
+  ON user_roles
+  FOR SELECT
+  USING (auth.uid() = user_id);
+
+-- Advocates can read all admin templates; admins can insert/update/delete
+CREATE POLICY "Authenticated users can read admin templates"
+  ON admin_templates
+  FOR SELECT
+  USING (auth.role() = 'authenticated');
+
+CREATE POLICY "Admins can manage admin templates"
+  ON admin_templates
+  FOR ALL
+  USING (
+    EXISTS (
+      SELECT 1 FROM user_roles
+      WHERE user_id = auth.uid() AND role = 'admin'
+    )
+  );
 
 
 -- ============================================================

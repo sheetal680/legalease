@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import { UserPlus, Loader2 } from 'lucide-react'
+import { UserPlus, Loader2, Eye, EyeOff } from 'lucide-react'
 import AdminLayout from './AdminLayout'
 import { supabase } from '../../lib/supabase'
 
-const EMPTY = { name: '', bar_council_number: '' }
+const EMPTY = { name: '', bar_council_number: '', email: '', password: '' }
 
 export default function AdminAddAdvocate() {
-  const [form, setForm]       = useState(EMPTY)
-  const [loading, setLoading] = useState(false)
+  const [form, setForm]           = useState(EMPTY)
+  const [loading, setLoading]     = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   function set(field) {
     return e => setForm(prev => ({ ...prev, [field]: e.target.value }))
@@ -16,25 +17,35 @@ export default function AdminAddAdvocate() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const { name, bar_council_number } = form
+    const { name, bar_council_number, email, password } = form
 
-    if (!name.trim() || !bar_council_number.trim()) {
-      toast.error('Both fields are required.')
+    if (!name.trim() || !email.trim() || !password.trim()) {
+      toast.error('Name, email and password are required.')
+      return
+    }
+    if (password.length < 8) {
+      toast.error('Password must be at least 8 characters.')
       return
     }
 
     setLoading(true)
     try {
-      const { error } = await supabase
-        .from('advocates')
-        .insert({ name: name.trim(), bar_council_number: bar_council_number.trim() })
+      const { data, error } = await supabase.functions.invoke('create-advocate', {
+        body: {
+          name:               name.trim(),
+          bar_council_number: bar_council_number.trim() || null,
+          email:              email.trim().toLowerCase(),
+          password,
+        },
+      })
 
       if (error) throw error
+      if (data?.error) throw new Error(data.error)
 
-      toast.success('Advocate added successfully!')
+      toast.success('Advocate account created successfully!')
       setForm(EMPTY)
     } catch (err) {
-      toast.error(err.message || 'Failed to add advocate.')
+      toast.error(err.message || 'Failed to create advocate.')
     } finally {
       setLoading(false)
     }
@@ -51,7 +62,9 @@ export default function AdminAddAdvocate() {
           </div>
           <div>
             <h1 className="text-xl font-bold text-[#1e3a5f]">Add Advocate</h1>
-            <p className="text-gray-400 text-sm">Register a new advocate on the platform.</p>
+            <p className="text-gray-400 text-sm">
+              Creates a login account for the advocate on the platform.
+            </p>
           </div>
         </div>
 
@@ -72,12 +85,50 @@ export default function AdminAddAdvocate() {
           <Field
             label="Bar Council Number"
             type="text"
-            placeholder="e.g. MH/1234/2020"
+            placeholder="e.g. MH/1234/2020 (optional)"
             value={form.bar_council_number}
             onChange={set('bar_council_number')}
             disabled={loading}
-            required
           />
+          <Field
+            label="Email Address"
+            type="email"
+            placeholder="e.g. priya@example.com"
+            value={form.email}
+            onChange={set('email')}
+            disabled={loading}
+            required
+            autoComplete="off"
+          />
+
+          {/* Password field with show/hide toggle */}
+          <div>
+            <label className="block text-xs font-bold text-[#1e3a5f] uppercase tracking-wider mb-1.5">
+              Password
+            </label>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Min. 8 characters"
+                value={form.password}
+                onChange={set('password')}
+                disabled={loading}
+                required
+                autoComplete="new-password"
+                className="w-full text-sm px-4 py-3 pr-11 border-2 border-gray-200 rounded-xl outline-none focus:border-[#1e3a5f] transition-colors placeholder-gray-400 disabled:opacity-60 disabled:bg-gray-50"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(p => !p)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-[#1e3a5f] transition-colors"
+              >
+                {showPassword
+                  ? <EyeOff className="w-4 h-4" />
+                  : <Eye className="w-4 h-4" />
+                }
+              </button>
+            </div>
+          </div>
 
           <button
             type="submit"
@@ -85,7 +136,7 @@ export default function AdminAddAdvocate() {
             className="w-full flex items-center justify-center gap-2 bg-[#1e3a5f] hover:bg-[#142840] disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold text-sm py-3.5 rounded-xl transition-colors mt-2"
           >
             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <UserPlus className="w-4 h-4" />}
-            {loading ? 'Adding Advocate…' : 'Add Advocate'}
+            {loading ? 'Creating Account…' : 'Create Advocate Account'}
           </button>
         </form>
 
