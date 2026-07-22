@@ -81,7 +81,25 @@ serve(async (req) => {
       return json({ error: insertErr.message }, 500);
     }
 
-    // ── 5. Success ─────────────────────────────────────────────────────────
+    // ── 5. Insert advocate_profiles row (pre-populates lawyer app profile) ─
+    const { error: profileErr } = await svcClient
+      .from("advocate_profiles")
+      .insert({
+        id:                 created.user.id,
+        full_name:          name,
+        bar_council_number: bar_council_number ?? null,
+        email,
+        firm_name:          "",
+        address:            "",
+        phone:              "",
+      });
+
+    if (profileErr) {
+      // Non-fatal: log but don't roll back — advocate can complete profile on first login
+      console.error("advocate_profiles insert failed:", profileErr.message);
+    }
+
+    // ── 6. Success ─────────────────────────────────────────────────────────
     return json({ success: true, user_id: created.user.id });
 
   } catch (err) {
