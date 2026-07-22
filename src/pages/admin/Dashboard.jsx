@@ -3,13 +3,19 @@ import { useAuth } from '../../context/AuthContext'
 
 export default function Dashboard() {
   const navigate = useNavigate()
-  const { signOut } = useAuth()
+  const { logout } = useAuth()
+
+  function handleLogout() {
+    logout()
+    navigate('/login', { replace: true })
+  }
+
   return (
     <div className="min-h-screen bg-gray-50 p-8">
       <div className="max-w-md mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-2xl font-bold text-blue-900">Admin Dashboard</h1>
-          <button onClick={signOut} className="text-sm text-gray-400 hover:text-blue-900">Sign out</button>
+          <button onClick={handleLogout} className="text-sm text-gray-400 hover:text-blue-900">Sign out</button>
         </div>
         <div className="space-y-4">
           <button onClick={() => navigate('/admin/add-advocate')}

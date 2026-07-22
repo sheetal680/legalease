@@ -2,13 +2,11 @@ import { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
 import { supabase } from '../../lib/supabase'
-import { useAuth } from '../../context/AuthContext'
 
 const PLACEHOLDERS = ['[ADVOCATE_NAME]','[BAR_NUMBER]','[CLIENT_NAME]','[CLIENT_ADDRESS]','[CASE_NUMBER]','[COURT_NAME]']
 
 export default function AddTemplate() {
   const navigate = useNavigate()
-  const { user } = useAuth()
   const [name, setName] = useState('')
   const [content, setContent] = useState('')
   const [loading, setLoading] = useState(false)
@@ -27,7 +25,7 @@ export default function AddTemplate() {
     if (!name.trim() || !content.trim()) { toast.error('Name and content required'); return }
     setLoading(true)
     try {
-      const { error } = await supabase.from('admin_templates').insert({ name: name.trim(), content: content.trim(), created_by: user.id })
+      const { error } = await supabase.from('admin_templates').insert({ name: name.trim(), content: content.trim() })
       if (error) throw error
       toast.success('Template saved!')
       setName(''); setContent('')

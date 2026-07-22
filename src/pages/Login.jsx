@@ -1,29 +1,32 @@
 import { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 export default function Login() {
-  const { user, role, loading, signInWithEmail, signInWithGoogle } = useAuth()
-  const [email, setEmail] = useState('')
+  const { login, isLoggedIn } = useAuth()
+  const navigate = useNavigate()
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [err, setErr] = useState('')
+  const [showPw, setShowPw] = useState(false)
+  const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center"><div className="w-8 h-8 border-4 border-blue-900 border-t-transparent rounded-full animate-spin" /></div>
-  if (user && role === 'admin') return <Navigate to="/admin" replace />
-
-  async function handleEmail(e) {
-    e.preventDefault()
-    setErr('')
-    setBusy(true)
-    try { await signInWithEmail(email, password) }
-    catch (e) { setErr(e.message); setBusy(false) }
+  if (isLoggedIn) {
+    navigate('/admin', { replace: true })
+    return null
   }
 
-  async function handleGoogle() {
+  function handleSubmit(e) {
+    e.preventDefault()
+    setError('')
     setBusy(true)
-    try { await signInWithGoogle() }
-    catch (e) { setErr(e.message); setBusy(false) }
+    const ok = login(username, password)
+    if (ok) {
+      navigate('/admin', { replace: true })
+    } else {
+      setError('Invalid username or password')
+      setBusy(false)
+    }
   }
 
   return (
@@ -31,21 +34,37 @@ export default function Login() {
       <div className="w-full max-w-sm bg-white rounded-2xl shadow-lg p-8">
         <h1 className="text-2xl font-bold text-blue-900 mb-1">LegalEase Admin</h1>
         <p className="text-gray-400 text-sm mb-6">Sign in to continue</p>
-        {err && <p className="text-red-600 text-sm mb-4 bg-red-50 px-3 py-2 rounded-lg">{err}</p>}
-        <form onSubmit={handleEmail} className="space-y-3 mb-4">
-          <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required disabled={busy}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm outline-none focus:border-blue-900 transition-colors" />
-          <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required disabled={busy}
-            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm outline-none focus:border-blue-900 transition-colors" />
+        {error && <p className="text-red-600 text-sm mb-4 bg-red-50 px-3 py-2 rounded-lg">{error}</p>}
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={e => setUsername(e.target.value)}
+            required
+            disabled={busy}
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm outline-none focus:border-blue-900 transition-colors"
+          />
+          <div className="relative">
+            <input
+              type={showPw ? 'text' : 'password'}
+              placeholder="Password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+              disabled={busy}
+              className="w-full px-4 py-3 pr-16 border-2 border-gray-200 rounded-xl text-sm outline-none focus:border-blue-900 transition-colors"
+            />
+            <button type="button" onClick={() => setShowPw(p => !p)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-gray-400 hover:text-blue-900">
+              {showPw ? 'Hide' : 'Show'}
+            </button>
+          </div>
           <button type="submit" disabled={busy}
             className="w-full bg-blue-900 text-white font-semibold py-3 rounded-xl text-sm disabled:opacity-60">
             {busy ? 'Signing in…' : 'Sign In'}
           </button>
         </form>
-        <button onClick={handleGoogle} disabled={busy}
-          className="w-full border-2 border-gray-200 text-blue-900 font-semibold py-3 rounded-xl text-sm disabled:opacity-60">
-          Continue with Google
-        </button>
       </div>
     </div>
   )
