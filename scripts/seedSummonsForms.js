@@ -42,6 +42,7 @@ const GAP = n => '<p>&nbsp;</p>'.repeat(n)
 const A_MARGIN = '78 45 40 45'   // top right bottom left, measured off the scan
 const formA = `
 <div data-page-margin="${A_MARGIN}"></div>
+<div data-page-font="helvetica"></div>
 <h2 style="text-align:center;"><u>SUMMONS TO ACCUSED PERSON</u></h2>
 <p style="text-align:center;">(Section 68 Cri. Pro. Code)</p>
 <p>&nbsp;</p>
@@ -60,12 +61,12 @@ ${GAP(19)}
 <p>&nbsp;</p>
 <p style="margin-left:54%;">of I.P.C. / 138 of NI ACT</p>
 <p>You here by requested to appear in person before${dots(90)}</p>
-<p>${dots(36)}J.F.C.M.${sp(9)}at 10-0 a.m. on the${dots(74)}day</p>
-<p>of${dots(67)}202${dots(92)}</p>
+<p>${dots(36)}J.F.C.M.${sp(9)}at 10-0 a.m. on the [DAY]${dots(74)}day</p>
+<p>of [MONTH]${dots(67)}202[YEAR_LAST]${dots(92)}</p>
 <p>${dots(98)}Given under my hand and Seal of the Court</p>
-<p>${dots(38)}on this day of${dots(77)}202${dots(26)}</p>
+<p>${dots(38)}on this [DAY] day of [MONTH]${dots(77)}202[YEAR_LAST]${dots(26)}</p>
 <p>&nbsp;</p>
-<p style="margin-left:23%;">( Seal )${sp(86)}MAGISTRATE</p>
+<p style="margin-left:23%;">((SEAL))${sp(84)}MAGISTRATE</p>
 `.trim().replace(/\n/g, '')
 
 // ── Form B: Summons (O. 5, RR 1, 5 C.P.C.) ─────────────────────────
@@ -73,6 +74,7 @@ ${GAP(19)}
 const B_MARGIN = '95 23 40 23'   // top right bottom left, measured off the scan
 const formB = `
 <div data-page-margin="${B_MARGIN}"></div>
+<div data-page-font="helvetica"></div>
 <h2><strong>SUMMONS</strong>${sp(10)}(0, 5, RR 1, 5 C.P.C.)</h2>
 <p>&nbsp;</p>
 <p>IN THE COURT OF THE [COURT_NAME]</p>
@@ -96,10 +98,10 @@ const formB = `
 <p style="text-align:justify;">TAKE notice that, in defaults of your apperarance on the day before mentioned the suit will be heard and determined iin your absence.</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p>GIVIN under my hand and the seal of the Court this</p>
+<p>GIVIN under my hand and the seal of the Court this [DAY] day of [MONTH]</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p>202</p>
+<p>202[YEAR_LAST]</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p style="text-align:right;">(By order of the Court)</p>
