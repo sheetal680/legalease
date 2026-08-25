@@ -32,6 +32,14 @@
 //
 // [POLICE_STATION] intentionally appears twice in the document (the memo's
 // "of P.S." line and the verification's "P.S." line) — one question fills both.
+//
+// CONVENTION for future templates: where a blank sits next to a label the form
+// already prints — "P.S. ____", "Dist. ____", "now lodged in ____ Prison" —
+// declare it as `printedLabel`. The advocate is then told to enter only the
+// name itself, and is nudged if they type the label back in, which would
+// otherwise produce "P.S. Governorpet P.S.". The wording is generated from the
+// value, so it reads identically across every template. It applies whether the
+// label is printed before or after the blank.
 
 import { createClient } from '@supabase/supabase-js'
 
@@ -91,22 +99,22 @@ const REPAIRS = [
 // Plain-language questions, in the order the blanks appear in the document.
 const MANUAL_FIELDS = [
   { token: '[ACCUSED_ADDRESS]', label: 'Address of the Accused / Person Interested', type: 'textarea' },
-  { token: '[CRIME_NUMBER]', label: 'Crime Number', type: 'text' },
+  { token: '[CRIME_NUMBER]', label: 'Crime Number', type: 'text', printedLabel: 'Crime No' },
   { token: '[CRIME_YEAR]', label: 'Crime Year', type: 'year', prefix: '202' },
-  { token: '[POLICE_STATION]', label: 'Police Station', type: 'text',
+  { token: '[POLICE_STATION]', label: 'Police Station', type: 'text', printedLabel: 'P.S.',
     hint: 'Used on both the memo and the verification.' },
   { token: '[PERSON_INTERESTED_NAME]', label: 'Name of the Person Interested', type: 'text',
     hint: 'Whoever is signing the verification on the accused’s behalf.' },
-  { token: '[AUTHORISED_BY]', label: 'Authorised by Sri (name of the Accused)', type: 'text' },
-  { token: '[DISTRICT]', label: 'District', type: 'text' },
-  { token: '[PRISON_NAME]', label: 'Prison Name', type: 'text' },
+  { token: '[AUTHORISED_BY]', label: 'Authorised by Sri (name of the Accused)', type: 'text', printedLabel: 'Sri' },
+  { token: '[DISTRICT]', label: 'District', type: 'text', printedLabel: 'Dist.' },
+  { token: '[PRISON_NAME]', label: 'Prison Name', type: 'text', printedLabel: 'Prison' },
   { token: '[PRISON_PLACE]', label: 'Prison Location', type: 'text' },
   { token: '[RELATIONSHIP_TO_ACCUSED]', label: 'Relationship to the Accused', type: 'text',
     hint: 'Completes "Accused is my …" — for example father, brother, wife.' },
-  { token: '[PRIOR_PETITION_NUMBER]', label: 'Earlier Bail Petition Number', type: 'text',
+  { token: '[PRIOR_PETITION_NUMBER]', label: 'Earlier Bail Petition Number', type: 'text', printedLabel: 'No.',
     hint: 'Leave blank if no earlier bail petition was filed.' },
   { token: '[PRIOR_PETITION_DATE]', label: 'Earlier Bail Petition — Date', type: 'date' },
-  { token: '[PRIOR_PETITION_COURT]', label: 'Earlier Bail Petition — Court', type: 'text' },
+  { token: '[PRIOR_PETITION_COURT]', label: 'Earlier Bail Petition — Court', type: 'text', printedLabel: 'Court of' },
   { token: '[PRIOR_PETITION_PLACE]', label: 'Earlier Bail Petition — Place', type: 'text' },
   { token: '[PRIOR_PETITION_DISPOSAL]', label: 'Earlier Bail Petition — Disposal', type: 'text',
     hint: 'The line reads "the same has … been disposed off." Type "not" if it has not been disposed of; otherwise leave blank.' },
