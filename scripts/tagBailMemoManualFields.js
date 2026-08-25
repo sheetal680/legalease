@@ -19,8 +19,11 @@
 // the leader, which the renderer's elastic fill-lines then shrink to keep the
 // line flush at the right margin.
 //
-// The one deliberate exception is [CRIME_YEAR_LAST], which must sit flush
-// against the pre-printed "202" so the two read as a single year.
+// The one deliberate exception is [CRIME_YEAR], which must sit flush against
+// the pre-printed "202" so the two read as a single year. That field is typed
+// `year` with prefix "202": the advocate is asked for a plain four-digit year
+// and only the digits the form leaves room for are emitted. This is the
+// standard pattern for any pre-printed year slot.
 //
 // Blanks deliberately NOT asked about, because they already autofill:
 //   the court name, the case number, the year, the advocate's name (both the
@@ -48,7 +51,7 @@ const TEMPLATE_NAME =
 const EDITS = [
   ['residing at',                'residing at&nbsp;[ACCUSED_ADDRESS]'],
   ['in Crime No',                'in Crime No&nbsp;[CRIME_NUMBER]'],
-  ['<p>202',                     '<p>202[CRIME_YEAR_LAST]'],
+  ['<p>202',                     '<p>202[CRIME_YEAR]'],
   ['of P.S.',                    'of P.S.&nbsp;[POLICE_STATION]'],
   ['<p>hereby verify',           '<p>[PERSON_INTERESTED_NAME]&nbsp;&nbsp;hereby verify'],
   ['authorised by Sri</p>',      'authorised by Sri&nbsp;[AUTHORISED_BY]</p>'],
@@ -67,10 +70,13 @@ const EDITS = [
   ['<em>For</em>',               '<em>For</em>&nbsp;[CLIENT_NAME]'],
 ]
 
-// An earlier run of this script placed the tokens flush against the label, so
-// a filled form read "Accused is mybrother". These rewrite that first pass into
-// the spaced form above; on a freshly-seeded template none of them match.
+// Rewrites of earlier passes of this script, so re-running converges on the
+// current shape rather than needing the template re-seeded. On a freshly
+// seeded template none of them match.
 const REPAIRS = [
+  // [CRIME_YEAR_LAST] asked for a single digit; it is now [CRIME_YEAR], a
+  // four-digit year whose pre-printed "202" is stripped at render time.
+  ['[CRIME_YEAR_LAST]', '[CRIME_YEAR]'],
   ['residing at[ACCUSED_ADDRESS]',        'residing at&nbsp;[ACCUSED_ADDRESS]'],
   ['in Crime No[CRIME_NUMBER]',           'in Crime No&nbsp;[CRIME_NUMBER]'],
   ['of P.S.[POLICE_STATION]',             'of P.S.&nbsp;[POLICE_STATION]'],
@@ -86,8 +92,7 @@ const REPAIRS = [
 const MANUAL_FIELDS = [
   { token: '[ACCUSED_ADDRESS]', label: 'Address of the Accused / Person Interested', type: 'textarea' },
   { token: '[CRIME_NUMBER]', label: 'Crime Number', type: 'text' },
-  { token: '[CRIME_YEAR_LAST]', label: 'Crime Year — last digit', type: 'text',
-    hint: 'The form already prints "202", so enter just the final digit (e.g. 4 for 2024).' },
+  { token: '[CRIME_YEAR]', label: 'Crime Year', type: 'year', prefix: '202' },
   { token: '[POLICE_STATION]', label: 'Police Station', type: 'text',
     hint: 'Used on both the memo and the verification.' },
   { token: '[PERSON_INTERESTED_NAME]', label: 'Name of the Person Interested', type: 'text',
@@ -115,7 +120,7 @@ async function main() {
   let content = row.content
 
   for (const [from, to] of REPAIRS) {
-    if (content.includes(from)) { content = content.split(from).join(to); console.log('  repaired spacing:', from) }
+    if (content.includes(from)) { content = content.split(from).join(to); console.log('  rewrote:', from) }
   }
 
   for (const [anchor, replacement] of EDITS) {
