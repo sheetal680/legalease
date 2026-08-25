@@ -20,12 +20,16 @@ await tagBatch([
       ['of 202</p><p style="text-align:right;"><u>Petitioner(s)</u>',
        'of 202[AGAINST_CASE_YEAR]</p><p style="text-align:right;"><u>Petitioner(s)</u>'],
       ['<p>I/We</p><p>&nbsp;', '<p>I/We</p><p>[EXECUTANT_NAME]&nbsp;'],
-      ['</u>to the executant', '[EXPLAINED_IN_LANGUAGE]</u>to the executant'],
+      ['</u>to the executant', '[EXPLAINED_IN_LANGUAGE]&nbsp;</u>to the executant'],
       ['<p>S.R.No.</p>', '<p>S.R.No.&nbsp;[SR_NUMBER]</p>'],
       ['<p style="text-align:right;">DISTRICT</p>',
        '<p style="text-align:right;">[HC_DISTRICT]&nbsp;DISTRICT</p>'],
       ['of 202</p><p>&nbsp;</p><p>&nbsp;</p><h2',
        'of 202[CASE_YEAR]</p><p>&nbsp;</p><p>&nbsp;</p><h2'],
+    ],
+    repairs: [
+      // Was flush against the following words: "Teluguto the executant".
+      ['[EXPLAINED_IN_LANGUAGE]</u>', '[EXPLAINED_IN_LANGUAGE]&nbsp;</u>'],
     ],
     fields: [
       { token: '[CASE_YEAR]', label: 'Case Year', type: 'year', prefix: '202' },

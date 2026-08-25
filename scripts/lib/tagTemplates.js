@@ -77,8 +77,15 @@ export async function tagBatch(batch) {
     }
 
     for (const [anchor, replacement, expected = 1] of spec.edits) {
-      if (content.includes(replacement)) continue          // already tagged
       const hits = content.split(anchor).length - 1
+      const done = content.split(replacement).length - 1
+      // "Already applied" cannot be inferred from the replacement merely being
+      // present: a replacement like "/202[YEAR_LAST]" may already exist
+      // elsewhere in the document for an unrelated reason, which would silently
+      // skip a real edit. It counts as applied only when the replacement is
+      // there at least as often as expected AND the anchor is either gone or
+      // only still visible because it is a substring of the replacement.
+      if (done >= expected && (hits === 0 || hits === expected)) continue
       if (hits !== expected) {
         console.error(`  ✗ ${spec.name}\n      anchor ${JSON.stringify(anchor)} matched ${hits}x (expected ${expected})`)
         ok = false
