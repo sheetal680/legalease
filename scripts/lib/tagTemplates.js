@@ -56,7 +56,14 @@ export function client() {
   return createClient(url, key)
 }
 
+// Set TAG_DRY_RUN=1 to collect a batch's specs without touching the database.
+// Used to audit the batches statically — e.g. proving no edit drops an
+// autofill token that its anchor carried.
+export const DRY_RUN_BATCHES = []
+
 export async function tagBatch(batch) {
+  if (process.env.TAG_DRY_RUN) { DRY_RUN_BATCHES.push(...batch); return }
+
   const supabase = client()
   let failed = 0
 
