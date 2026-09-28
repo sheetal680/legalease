@@ -58,14 +58,13 @@ const KINDS = {
   'Debt Recovery Tribunal': TS,
   'Industrial Tribunal': TS,
 
-  // NOTE — deliberately left NULL, not typed:
-  // A Labour Court (and an Industrial Court) is constituted under s.7 of the
-  // Industrial Disputes Act. It is neither part of the district judiciary nor
-  // named a tribunal, and it is not in the list of special fora this import
-  // was told to recognise. Calling it Tribunal & Special is a reasonable
-  // reading, but it is a reading — so it is reported instead of assumed.
-  'Labour Court': null,
-  'Industrial Court': null,
+  // Constituted under s.7 of the Industrial Disputes Act and sitting outside
+  // the district judiciary, so they belong with the tribunals and special fora
+  // rather than with the ordinary civil and criminal courts. Left untyped on
+  // the first import because neither is named a tribunal; typed here on the
+  // instruction of the advocate this list is for.
+  'Labour Court': TS,
+  'Industrial Court': TS,
 
   // ── High Courts ─────────────────────────────────────────────────
   'High Court of Andhra Pradesh': HC,
