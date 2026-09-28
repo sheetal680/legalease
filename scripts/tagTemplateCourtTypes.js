@@ -42,8 +42,14 @@ const TAGS = {
     [[DS], 'Attachment before judgement — Order 38 CPC'],
   'Form No. 51 (Rule 128 C.R.P.) - Application for Certified Copies':
     [[DS], 'Certified copies in a suit before the trial court'],
+  // Printed as a Magistrate's form — it directs appearance "before the First
+  // Class Magistrate". But s.125 maintenance is expressly within Family Court
+  // jurisdiction under s.7(2)(a) of the Family Courts Act, so the same notice
+  // is filed there where a Family Court has been constituted. Tagged for both
+  // rather than for where the paper happens to have been printed.
   'M.C. Notice (Section 125 Cr. P.C.)':
-    [[DS], 'Directs appearance "before the First Class Magistrate"'],
+    [[FC, DS], 'Maintenance u/s 125 Cr.P.C. — Family Court jurisdiction under '
+      + 's.7(2)(a) Family Courts Act; printed form names the First Class Magistrate'],
   'Memo of Appearance (Criminal)':
     [[DS], 'Criminal memo of appearance, complainant/accused cause title'],
   'Memo of Appearance with Verification by the Person Interested (Bail u/s 437 / 439 Cr. P.C.)':

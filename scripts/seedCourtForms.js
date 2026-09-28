@@ -197,10 +197,22 @@ const FORMS = [
   {
     file: 'hc08', name: 'Application for Certified Copy (Delhi High Court)',
     court_types: HC,
-    rules: [
-      [/CaseNo\. _{4,} of20/, 'Case No. [CASE_NUMBER] of 202[YEAR_LAST]'],
+    // This source PDF is a scan with a poor text layer. Only unmistakable
+    // scan damage is repaired — letters the OCR misread and speckle it
+    // invented. Nothing the form actually says is reworded.
+    ocrFixes: [
+      ['Plailltiff IAppellants/Petitioner', 'Plaintiff /Appellants/Petitioner'],
+      [/-+:DefendantiRespondent/, 'Defendant/Respondent'],
+      ['(S) Document (s)', '(5) Document (s)'],
+      [/^S\.(\s)/m, '5.$1'],
+      ["Advocate for Petitioner IAppellant'", 'Advocate for Petitioner /Appellant/'],
+      ['DefendantiRespondent', 'Defendant/Respondent'],
+      ['CaseNo. ', 'Case No. '],
+      [' of20', ' of 20'],
     ],
-    ocr: true,
+    rules: [
+      [/Case No\. _{4,} of 20/, 'Case No. [CASE_NUMBER] of 202[YEAR_LAST]'],
+    ],
   },
   {
     file: 'hc09', name: 'Application for Uncertified Copy of Order (Delhi High Court)',
@@ -278,10 +290,18 @@ const FORMS = [
   {
     file: 'hc19', name: 'Application for Supply of Digital Copy (Delhi High Court)',
     court_types: HC,
+    ocrFixes: [
+      ['PLAINTIFF/APPELLANTIPETITIONER', 'PLAINTIFF/APPELLANT/PETITIONER'],
+      ['CDs/DVD~nclosed', 'CDs/DVDs enclosed'],
+      ['Advocate for Petitioner!Appellant', 'Advocate for Petitioner/Appellant'],
+      ['Em-oUment No', 'Enrolment No'],
+      ['Na,me:', 'Name:'],
+      [/^\. Signature:/m, '  Signature:'],
+      [' of20', ' of 20'],
+    ],
     rules: [
       [/Dated:/, 'Dated: [DATE]'],
     ],
-    ocr: true,
   },
 
   // ── District & Subordinate ───────────────────────────────────────
@@ -313,6 +333,27 @@ for (const form of FORMS) {
   let text = readFileSync(path, 'utf8')
   try {
     if (form.pre) text = form.pre(text)
+    if (form.ocrFixes) {
+      text = applyTokens(text, form.ocrFixes, `${form.name} / OCR`)
+      // A scan turns a ruled blank into spaced underscores or dashes
+      // ("_ _ _ _", "- - - -"). Collapsed back to a solid run so the renderer
+      // sees a fill-line it can stretch, rather than a row of stray marks.
+      text = text
+        .replace(/(?:_[ 	]){3,}_*/g, m => '_'.repeat(m.length))
+        // A dash followed by three or more dashes/spaces is a ruled blank the
+        // scanner broke up ("- - --", "------------"), not punctuation.
+        // [ 	-], never \s: \s matches a newline, so a rule ending a line
+        // would swallow the break and weld the next line onto it.
+        .replace(/-[ 	-]{3,}/g, m => '_'.repeat(m.length))
+        // Speckle: marks the scanner invented. Only characters left floating
+        // in whitespace at the end of a line, or stranded on a rule, are
+        // removed — never anything sitting inside the form's own wording.
+        .replace(/(_{4,})[~—-]+$/gm, '$1')
+        .replace(/\s{6,}[.,]{1,2}$/gm, '')
+        .replace(/\s{15,}[jIJ]$/gm, '')
+        .replace(/\s{15,}-\.\s*[jIJ]$/gm, '')
+        .replace(/(Total number of pages)\s+-$/gm, '$1')
+    }
     text = applyTokens(text, form.rules, form.name)
     if (form.post) text = form.post(text)
     // &&& is a line-splitter used where pdftotext collapsed a stacked
