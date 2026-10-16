@@ -1,0 +1,5070 @@
+[
+ {
+  "index": 1,
+  "name": "Affidavit of Service by Post (Supreme Court, Form 21)",
+  "file": "01-Affidavit-of-Service-by-Post-Supreme-Court-Form-21.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Supreme Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 5,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 6,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   },
+   {
+    "n": 7,
+    "token": "[COURT_PLACE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court place"
+   },
+   {
+    "n": 8,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 9,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 10,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 2,
+  "name": "Affidavit of Service of Summons (Supreme Court, Form 20)",
+  "file": "02-Affidavit-of-Service-of-Summons-Supreme-Court-Form-20.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Supreme Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 5,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 6,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   },
+   {
+    "n": 7,
+    "token": "[COURT_PLACE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court place"
+   },
+   {
+    "n": 8,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 9,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 10,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 3,
+  "name": "Appearance Slip (Supreme Court, Form 30)",
+  "file": "03-Appearance-Slip-Supreme-Court-Form-30.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Supreme Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[HEARING_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date of Listing"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 4,
+  "name": "Application for Adjournment (Delhi High Court)",
+  "file": "04-Application-for-Adjournment-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 3,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 5,
+  "name": "Application for Certified Copy (Delhi High Court)",
+  "file": "05-Application-for-Certified-Copy-Delhi-High-Court.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": true,
+  "overshootBeforePt": 110,
+  "overshootPt": 0,
+  "blankOverflow": true,
+  "blankOvershootPt": 110,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 6,
+  "name": "Application for Inspection of File (Delhi High Court)",
+  "file": "06-Application-for-Inspection-of-File-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 4,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 7,
+  "name": "Application for Supply of Digital Copy (Delhi High Court)",
+  "file": "07-Application-for-Supply-of-Digital-Copy-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 8,
+  "name": "Application for Uncertified Copy of Order (Delhi High Court)",
+  "file": "08-Application-for-Uncertified-Copy-of-Order-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 4,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 9,
+  "name": "Attachment in Execution - Prohibitory Order, Immovable Property (Order 21, Rule 54)",
+  "file": "09-Attachment-in-Execution-Prohibitory-Order-Immovable-Property-Order-21-Rule-54.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[EP_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "E.P. Number"
+   },
+   {
+    "n": 3,
+    "token": "[EP_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "E.P. Year"
+   },
+   {
+    "n": 4,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 5,
+    "token": "[OS_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.S. Year"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[DECREE_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Date — Day"
+   },
+   {
+    "n": 9,
+    "token": "[DECREE_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Date — Month"
+   },
+   {
+    "n": 10,
+    "token": "[DECREE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Date — Year"
+   },
+   {
+    "n": 11,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 12,
+    "token": "[OS_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.S. Year"
+   },
+   {
+    "n": 13,
+    "token": "[DECREE_IN_FAVOUR_OF]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree in Favour Of"
+   },
+   {
+    "n": 14,
+    "token": "[DECREE_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Amount"
+   },
+   {
+    "n": 15,
+    "token": "[ATTEND_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend Court — Day"
+   },
+   {
+    "n": 16,
+    "token": "[ATTEND_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend Court — Month"
+   },
+   {
+    "n": 17,
+    "token": "[ATTEND_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend Court — Year"
+   },
+   {
+    "n": 18,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 19,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 20,
+    "token": "[YEAR]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — 4-digit year"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 10,
+  "name": "Caveat (Delhi High Court)",
+  "file": "10-Caveat-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 11,
+  "name": "Costs Memo and Fees Certificate",
+  "file": "11-Costs-Memo-and-Fees-Certificate.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[PARTY_TYPE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — party type (Plaintiff / Defendant)"
+   },
+   {
+    "n": 7,
+    "token": "[COST_VAKALAT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Vakalat"
+   },
+   {
+    "n": 8,
+    "token": "[COST_WELFARE_FUND]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Advocate Welfare Fund"
+   },
+   {
+    "n": 9,
+    "token": "[COST_PLAINT_FEES]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Plaint Fees"
+   },
+   {
+    "n": 10,
+    "token": "[COST_PETITION_STAMP]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Stamp"
+   },
+   {
+    "n": 11,
+    "token": "[COST_PROCESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Process"
+   },
+   {
+    "n": 12,
+    "token": "[COST_WITNESS_BATA]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Witness Bata"
+   },
+   {
+    "n": 13,
+    "token": "[COST_PENALTY_STAMP]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Stamp for Penalty"
+   },
+   {
+    "n": 14,
+    "token": "[COST_COURT_FEE_DOCUMENT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Court Fee Affixed on Document"
+   },
+   {
+    "n": 15,
+    "token": "[COST_COMMISSIONER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Commissioner Fees"
+   },
+   {
+    "n": 16,
+    "token": "[COST_PLEADERS_FEES]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Pleaders Fees"
+   },
+   {
+    "n": 17,
+    "token": "[COST_PUBLICATION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Publication Charges"
+   },
+   {
+    "n": 18,
+    "token": "[COST_COURT_GUARDIAN]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Court Guardian Fees"
+   },
+   {
+    "n": 19,
+    "token": "[COST_WRITING]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Writing Charges"
+   },
+   {
+    "n": 20,
+    "token": "[COST_TYPE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Type Charges"
+   },
+   {
+    "n": 21,
+    "token": "[PARTY_TYPE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — party type (Plaintiff / Defendant)"
+   },
+   {
+    "n": 22,
+    "token": "[FEES_RECEIVED]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Fees Received"
+   },
+   {
+    "n": 23,
+    "token": "[FEES_FROM]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Fees Received From"
+   },
+   {
+    "n": 24,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 12,
+  "name": "Execution Petition under Order 21, Rule II, Clause I - filed by the Decree Holder",
+  "file": "12-Execution-Petition-under-Order-21-Rule-II-Clause-I-filed-by-the-Decree-Holder.pdf",
+  "pages": 4,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[EP_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "E.P. Number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 9,
+    "token": "[DATE_OF_DECREE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "4. Date of Decree"
+   },
+   {
+    "n": 10,
+    "token": "[APPEAL_PREFERRED]",
+    "kind": "MANUAL QUESTION",
+    "detail": "5. Whether any Appeal Preferred from Decree"
+   },
+   {
+    "n": 11,
+    "token": "[PREVIOUS_APPLICATION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "6. Previous Application, with Date and Result"
+   },
+   {
+    "n": 12,
+    "token": "[PAYMENT_ADJUSTMENT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "7. Payment or Adjustment, if any"
+   },
+   {
+    "n": 13,
+    "token": "[DECREE_TRANSFERRED]",
+    "kind": "MANUAL QUESTION",
+    "detail": "8. Whether Decree Transferred or Not"
+   },
+   {
+    "n": 14,
+    "token": "[AMOUNT_RS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "9. Amount Due — Rupees"
+   },
+   {
+    "n": 15,
+    "token": "[AMOUNT_PS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "9. Amount Due — Paise"
+   },
+   {
+    "n": 16,
+    "token": "[DECREE_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "9. Decree Amount"
+   },
+   {
+    "n": 17,
+    "token": "[SUBSEQUENT_INTEREST]",
+    "kind": "MANUAL QUESTION",
+    "detail": "9. Subsequent Interest"
+   },
+   {
+    "n": 18,
+    "token": "[INTEREST_FROM]",
+    "kind": "MANUAL QUESTION",
+    "detail": "9. Interest From"
+   },
+   {
+    "n": 19,
+    "token": "[INTEREST_TO]",
+    "kind": "MANUAL QUESTION",
+    "detail": "9. Interest To"
+   },
+   {
+    "n": 20,
+    "token": "[INTEREST_RATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "9. Interest Rate"
+   },
+   {
+    "n": 21,
+    "token": "[COST_RS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "10. Cost Awarded — Rupees"
+   },
+   {
+    "n": 22,
+    "token": "[COST_PS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "10. Cost Awarded — Paise"
+   },
+   {
+    "n": 23,
+    "token": "[COST_AWARDED]",
+    "kind": "MANUAL QUESTION",
+    "detail": "10. Cost Awarded in the Decree"
+   },
+   {
+    "n": 24,
+    "token": "[AGAINST_WHOM]",
+    "kind": "MANUAL QUESTION",
+    "detail": "11. Against Whom to be Executed"
+   },
+   {
+    "n": 25,
+    "token": "[MODE_OF_ASSISTANCE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "12. Mode in which the Court’s Assistance is Required"
+   },
+   {
+    "n": 26,
+    "token": "[STATION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Station"
+   },
+   {
+    "n": 27,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 28,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 29,
+    "token": "[EP_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "E.P. Number"
+   },
+   {
+    "n": 30,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 13,
+  "name": "F. No 7-A - Attachment of immovable Property before Judgement (Order 38, Rule 5 C.P.C.)",
+  "file": "13-F-No-7-A-Attachment-of-immovable-Property-before-Judgement-Order-38-Rule-5-C-P-C.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 3,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 4,
+    "token": "[DEFENDANT_ADDRESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Address of the Defendant"
+   },
+   {
+    "n": 5,
+    "token": "[CALLED_UPON_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date the Court Called Upon the Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[WARRANT_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Warrant Amount"
+   },
+   {
+    "n": 7,
+    "token": "[HEARING_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Hearing Date — Day and Month"
+   },
+   {
+    "n": 8,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 9,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 10,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 11,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 14,
+  "name": "Form for Interlocutory Applications (Delhi High Court)",
+  "file": "14-Form-for-Interlocutory-Applications-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 15,
+  "name": "Form for Urgent (Mentioning) Cases for Listing (Delhi High Court)",
+  "file": "15-Form-for-Urgent-Mentioning-Cases-for-Listing-Delhi-High-Court.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": true,
+  "overshootBeforePt": 177,
+  "overshootPt": 0,
+  "blankOverflow": true,
+  "blankOvershootPt": 177,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 4,
+    "token": "[BAR_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — bar council number"
+   },
+   {
+    "n": 5,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   },
+   {
+    "n": 6,
+    "token": "[ADVOCATE_PHONE]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — phone"
+   },
+   {
+    "n": 7,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   }
+  ],
+  "orphanQuestions": [
+   {
+    "token": "[URGENCY_GROUNDS]",
+    "label": "Grounds for Urgency and Nature of Relief Sought"
+   }
+  ]
+ },
+ {
+  "index": 16,
+  "name": "Form No. 11 (Rule 15) - Notice in the matter of the Marriage Act",
+  "file": "16-Form-No-11-Rule-15-Notice-in-the-matter-of-the-Marriage-Act.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": true,
+  "overshootBeforePt": 72,
+  "overshootPt": 0,
+  "blankOverflow": true,
+  "blankOvershootPt": 72,
+  "court_types": [
+   "Family Court",
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 3,
+    "token": "[PRESENTED_ON]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Presented On"
+   },
+   {
+    "n": 4,
+    "token": "[FILED_ON]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed On"
+   },
+   {
+    "n": 5,
+    "token": "[NOTICE_ISSUED_ON]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Notice Issued On"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 7,
+    "token": "[PETITION_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed — Day"
+   },
+   {
+    "n": 8,
+    "token": "[PETITION_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed — Month"
+   },
+   {
+    "n": 9,
+    "token": "[PETITION_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed — Year"
+   },
+   {
+    "n": 10,
+    "token": "[RELIEF_SOUGHT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Relief Sought"
+   },
+   {
+    "n": 11,
+    "token": "[APPEAR_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent to Appear — Day"
+   },
+   {
+    "n": 12,
+    "token": "[APPEAR_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent to Appear — Month"
+   },
+   {
+    "n": 13,
+    "token": "[APPEAR_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent to Appear — Year"
+   },
+   {
+    "n": 14,
+    "token": "[STATEMENT_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Return Statement Due — Day"
+   },
+   {
+    "n": 15,
+    "token": "[STATEMENT_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Return Statement Due — Month"
+   },
+   {
+    "n": 16,
+    "token": "[STATEMENT_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Return Statement Due — Year"
+   },
+   {
+    "n": 17,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 18,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 19,
+    "token": "[YEAR]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — 4-digit year"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 17,
+  "name": "Form No. 51 (Rule 128 C.R.P.) - Application for Certified Copies",
+  "file": "17-Form-No-51-Rule-128-C-R-P-Application-for-Certified-Copies.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[SUIT_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Suit Year"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — full name"
+   },
+   {
+    "n": 7,
+    "token": "[URGENCY_REASON]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Why the Copies are Urgently Required"
+   },
+   {
+    "n": 8,
+    "token": "[DOCUMENTS_REQUESTED]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Documents Requested"
+   },
+   {
+    "n": 9,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 10,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 11,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 12,
+    "token": "[PARTY_TYPE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — party type (Plaintiff / Defendant)"
+   },
+   {
+    "n": 13,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 14,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 15,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 16,
+    "token": "[FILED_ON]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Filed On"
+   },
+   {
+    "n": 17,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 18,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 18,
+  "name": "High Court Vakalatnama (Andhra Pradesh, Amaravati)",
+  "file": "18-High-Court-Vakalatnama-Andhra-Pradesh-Amaravati.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Case Year"
+   },
+   {
+    "n": 3,
+    "token": "[AGAINST_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Lower Court Case Number (appealed against)"
+   },
+   {
+    "n": 4,
+    "token": "[AGAINST_CASE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Lower Court Case Year"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 7,
+    "token": "[EXECUTANT_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Name of the Person Signing the Vakalat"
+   },
+   {
+    "n": 8,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 9,
+    "token": "[EXPLAINED_IN_LANGUAGE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Language the Vakalat was Explained In"
+   },
+   {
+    "n": 10,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 11,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 12,
+    "token": "[SR_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "S.R. Number"
+   },
+   {
+    "n": 13,
+    "token": "[HC_DISTRICT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "District"
+   },
+   {
+    "n": 14,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 15,
+    "token": "[CASE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Case Year"
+   },
+   {
+    "n": 16,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 19,
+  "name": "Index (Delhi High Court)",
+  "file": "19-Index-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 2,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 20,
+  "name": "List of Documents Produced (Order XIII Rule 1, Delhi High Court)",
+  "file": "20-List-of-Documents-Produced-Order-XIII-Rule-1-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 21,
+  "name": "Listing Proforma — Typed (Delhi High Court)",
+  "file": "21-Listing-Proforma-Typed-Delhi-High-Court.pdf",
+  "pages": 5,
+  "overflow": false,
+  "paginated": true,
+  "overshootBeforePt": 243,
+  "overshootPt": 0,
+  "blankOverflow": true,
+  "blankOvershootPt": 243,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 2,
+    "token": "[BAR_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — bar council number"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 22,
+  "name": "Listing Proforma II — Handwritten (Delhi High Court)",
+  "file": "22-Listing-Proforma-II-Handwritten-Delhi-High-Court.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[BAR_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — bar council number"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 23,
+  "name": "M.C. Notice (Section 125 Cr. P.C.)",
+  "file": "23-M-C-Notice-Section-125-Cr-P-C.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Family Court",
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[COURT_PLACE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court place"
+   },
+   {
+    "n": 3,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 4,
+    "token": "[CASE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "M.C. Year"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 7,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 8,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 9,
+    "token": "[YEAR]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — 4-digit year"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 24,
+  "name": "Memo of Appearance (Criminal)",
+  "file": "24-Memo-of-Appearance-Criminal.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 7,
+    "token": "[ACCUSED_ADDRESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Address of the Accused / Person Interested"
+   },
+   {
+    "n": 8,
+    "token": "[CRIME_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Crime Number"
+   },
+   {
+    "n": 9,
+    "token": "[CRIME_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Crime Year"
+   },
+   {
+    "n": 10,
+    "token": "[POLICE_STATION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Police Station"
+   },
+   {
+    "n": 11,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 12,
+    "token": "[CLIENT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — full name"
+   },
+   {
+    "n": 13,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 14,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 15,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 16,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 25,
+  "name": "Memo of Appearance with Verification by the Person Interested (Bail u/s 437 / 439 Cr. P.C.)",
+  "file": "25-Memo-of-Appearance-with-Verification-by-the-Person-Interested-Bail-u-s-437-439-Cr-P-C.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 7,
+    "token": "[ACCUSED_ADDRESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Address of the Accused / Person Interested"
+   },
+   {
+    "n": 8,
+    "token": "[CRIME_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Crime Number"
+   },
+   {
+    "n": 9,
+    "token": "[CRIME_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Crime Year"
+   },
+   {
+    "n": 10,
+    "token": "[POLICE_STATION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Police Station"
+   },
+   {
+    "n": 11,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 12,
+    "token": "[PERSON_INTERESTED_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Name of the Person Interested"
+   },
+   {
+    "n": 13,
+    "token": "[AUTHORISED_BY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Authorised by Sri (name of the Accused)"
+   },
+   {
+    "n": 14,
+    "token": "[POLICE_STATION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Police Station"
+   },
+   {
+    "n": 15,
+    "token": "[DISTRICT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "District"
+   },
+   {
+    "n": 16,
+    "token": "[PRISON_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Prison Name"
+   },
+   {
+    "n": 17,
+    "token": "[PRISON_PLACE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Prison Location"
+   },
+   {
+    "n": 18,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 19,
+    "token": "[RELATIONSHIP_TO_ACCUSED]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Relationship to the Accused"
+   },
+   {
+    "n": 20,
+    "token": "[PRIOR_PETITION_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Earlier Bail Petition Number"
+   },
+   {
+    "n": 21,
+    "token": "[PRIOR_PETITION_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Earlier Bail Petition — Date"
+   },
+   {
+    "n": 22,
+    "token": "[PRIOR_PETITION_COURT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Earlier Bail Petition — Court"
+   },
+   {
+    "n": 23,
+    "token": "[PRIOR_PETITION_PLACE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Earlier Bail Petition — Place"
+   },
+   {
+    "n": 24,
+    "token": "[PRIOR_PETITION_DISPOSAL]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Earlier Bail Petition — Disposal"
+   },
+   {
+    "n": 25,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 26,
+    "token": "[CLIENT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — full name"
+   },
+   {
+    "n": 27,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 28,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 29,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 30,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 26,
+  "name": "Memorandum of Appearance (Form 6)",
+  "file": "26-Memorandum-of-Appearance-Form-6.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 27,
+  "name": "Memorandum of Appearance in Person (Supreme Court, Form 8)",
+  "file": "27-Memorandum-of-Appearance-in-Person-Supreme-Court-Form-8.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Supreme Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 5,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 6,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 7,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 8,
+    "token": "[CLIENT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 28,
+  "name": "Memorandum of Appearance of Advocate",
+  "file": "28-Memorandum-of-Appearance-of-Advocate.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court",
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 3,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 29,
+  "name": "Memorandum of Appearance through Advocate-on-Record (Supreme Court, Form 9)",
+  "file": "29-Memorandum-of-Appearance-through-Advocate-on-Record-Supreme-Court-Form-9.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Supreme Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 5,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 6,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 7,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 8,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 30,
+  "name": "Notice (Hindu Marriage Act, 1955)",
+  "file": "30-Notice-Hindu-Marriage-Act-1955.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Family Court",
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[FILED_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed On — Day"
+   },
+   {
+    "n": 7,
+    "token": "[FILED_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed On — Month"
+   },
+   {
+    "n": 8,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 9,
+    "token": "[RELIEF_SOUGHT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Relief Sought"
+   },
+   {
+    "n": 10,
+    "token": "[APPEAR_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent to Appear — Day"
+   },
+   {
+    "n": 11,
+    "token": "[APPEAR_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent to Appear — Month"
+   },
+   {
+    "n": 12,
+    "token": "[STATEMENT_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Written Statement Due — Day"
+   },
+   {
+    "n": 13,
+    "token": "[STATEMENT_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Written Statement Due — Month"
+   },
+   {
+    "n": 14,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 15,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 16,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 31,
+  "name": "Notice (Hindu Marriage Act, 1955) - Nazar printing",
+  "file": "31-Notice-Hindu-Marriage-Act-1955-Nazar-printing.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Family Court",
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[CASE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.P. Year"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[FILED_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed On — Day"
+   },
+   {
+    "n": 7,
+    "token": "[FILED_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed On — Month"
+   },
+   {
+    "n": 8,
+    "token": "[FILED_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Petition Filed On — Year"
+   },
+   {
+    "n": 9,
+    "token": "[RELIEF_SOUGHT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Relief Sought"
+   },
+   {
+    "n": 10,
+    "token": "[APPEAR_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent to Appear — Day"
+   },
+   {
+    "n": 11,
+    "token": "[APPEAR_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent to Appear — Month"
+   },
+   {
+    "n": 12,
+    "token": "[APPEAR_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent to Appear — Year"
+   },
+   {
+    "n": 13,
+    "token": "[STATEMENT_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Written Statement Due — Day"
+   },
+   {
+    "n": 14,
+    "token": "[STATEMENT_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Written Statement Due — Month"
+   },
+   {
+    "n": 15,
+    "token": "[STATEMENT_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Written Statement Due — Year"
+   },
+   {
+    "n": 16,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 17,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 32,
+  "name": "Notice (I.A. / Original Suit)",
+  "file": "32-Notice-I-A-Original-Suit.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[OS_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Original Suit Number"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 9,
+    "token": "[RESPONDENT_ADVOCATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Respondent’s Advocate"
+   },
+   {
+    "n": 10,
+    "token": "[POSTED_TO_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date the Petition is Posted To"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 33,
+  "name": "Notice (Order 21 Rule 54 (1A))",
+  "file": "33-Notice-Order-21-Rule-54-1A.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[EP_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "E.P. Number"
+   },
+   {
+    "n": 3,
+    "token": "[OS_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.S. Number (the original suit)"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[DECREE_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Date — Day"
+   },
+   {
+    "n": 7,
+    "token": "[DECREE_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Date — Month"
+   },
+   {
+    "n": 8,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 9,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 10,
+    "token": "[DECREE_IN_FAVOUR_OF]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree in Favour Of"
+   },
+   {
+    "n": 11,
+    "token": "[DECREE_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Amount"
+   },
+   {
+    "n": 12,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 13,
+    "token": "[ATTEND_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend Court — Day"
+   },
+   {
+    "n": 14,
+    "token": "[ATTEND_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend Court — Month"
+   },
+   {
+    "n": 15,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 16,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 17,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 18,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 19,
+    "token": "[WARRANT_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Warrant Amount"
+   },
+   {
+    "n": 20,
+    "token": "[HEARING_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Hearing Date"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 34,
+  "name": "Notice (Order 21 Rule 54 (1A)) - Proclemation of sale printing",
+  "file": "34-Notice-Order-21-Rule-54-1A-Proclemation-of-sale-printing.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[EP_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "E.P. Number"
+   },
+   {
+    "n": 3,
+    "token": "[OS_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.S. Number (the original suit)"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[DECREE_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Date — Day"
+   },
+   {
+    "n": 7,
+    "token": "[DECREE_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Date — Month"
+   },
+   {
+    "n": 8,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 9,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 10,
+    "token": "[DECREE_IN_FAVOUR_OF]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree in Favour Of"
+   },
+   {
+    "n": 11,
+    "token": "[DECREE_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Amount"
+   },
+   {
+    "n": 12,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 13,
+    "token": "[ATTEND_DAY]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend Court — Day"
+   },
+   {
+    "n": 14,
+    "token": "[ATTEND_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend Court — Month"
+   },
+   {
+    "n": 15,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 16,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 17,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 18,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 19,
+    "token": "[WARRANT_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Warrant Amount"
+   },
+   {
+    "n": 20,
+    "token": "[HEARING_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Hearing Date"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 35,
+  "name": "Notice of Appearance (Supreme Court, Form 13)",
+  "file": "35-Notice-of-Appearance-Supreme-Court-Form-13.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "Supreme Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 4,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 36,
+  "name": "Notice of Motion (Delhi High Court)",
+  "file": "36-Notice-of-Motion-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 3,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 37,
+  "name": "Notice of Motion (Supreme Court, Form 4)",
+  "file": "37-Notice-of-Motion-Supreme-Court-Form-4.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": true,
+  "overshootBeforePt": 256,
+  "overshootPt": 0,
+  "blankOverflow": true,
+  "blankOvershootPt": 256,
+  "court_types": [
+   "Supreme Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 3,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 5,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 6,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 7,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 8,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 9,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 38,
+  "name": "Notice of the day fixed setting & Sale Proclanation (Order 21 Rule 66)",
+  "file": "38-Notice-of-the-day-fixed-setting-Sale-Proclanation-Order-21-Rule-66.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[EP_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "E.P. Year"
+   },
+   {
+    "n": 4,
+    "token": "[OS_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.S. Number (the original suit)"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 7,
+    "token": "[DECREE_HOLDER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Decree Holder"
+   },
+   {
+    "n": 8,
+    "token": "[TERMS_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date Fixed for Settling Terms — Year"
+   },
+   {
+    "n": 9,
+    "token": "[TERMS_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date Fixed for Settling Terms — Month"
+   },
+   {
+    "n": 10,
+    "token": "[TERMS_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date Fixed for Settling Terms — Day"
+   },
+   {
+    "n": 11,
+    "token": "[YEAR]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — 4-digit year"
+   },
+   {
+    "n": 12,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 13,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 39,
+  "name": "Notice to Send for pay particulars (Garnishee / Disbursing Officer)",
+  "file": "39-Notice-to-Send-for-pay-particulars-Garnishee-Disbursing-Officer.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[EP_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "E.P. Year"
+   },
+   {
+    "n": 4,
+    "token": "[OS_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.S. Number"
+   },
+   {
+    "n": 5,
+    "token": "[OS_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.S. Year"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[JDR_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Judgement Debtor Number"
+   },
+   {
+    "n": 9,
+    "token": "[GARNISHEE_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Garnishee (the salary-paying officer)"
+   },
+   {
+    "n": 10,
+    "token": "[JDR_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Judgement Debtor Number"
+   },
+   {
+    "n": 11,
+    "token": "[JDR_FATHER_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Judgement Debtor — Father’s Name"
+   },
+   {
+    "n": 12,
+    "token": "[JDR_ADDRESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Judgement Debtor — Address"
+   },
+   {
+    "n": 13,
+    "token": "[DUE_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Particulars Due By — Day and Month (Telugu)"
+   },
+   {
+    "n": 14,
+    "token": "[DUE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Particulars Due By — Year"
+   },
+   {
+    "n": 15,
+    "token": "[YEAR]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — 4-digit year"
+   },
+   {
+    "n": 16,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 17,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 40,
+  "name": "Notice U/Cr 21 48 CPC)",
+  "file": "40-Notice-U-Cr-21-48-CPC.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[OS_SC_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "O.S. / S.C. Number (the main case)"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[JDR_ADDRESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Address of the Judgement Debtor"
+   },
+   {
+    "n": 9,
+    "token": "[APPEAR_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Appear and State Objections"
+   },
+   {
+    "n": 10,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 11,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 41,
+  "name": "Opening Sheet for Criminal Appeal u/s 374 Cr.P.C. (Delhi High Court)",
+  "file": "41-Opening-Sheet-for-Criminal-Appeal-u-s-374-Cr-P-C-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 42,
+  "name": "Opening Sheet for Criminal Revision u/s 397 / 401 Cr.P.C. (Delhi High Court)",
+  "file": "42-Opening-Sheet-for-Criminal-Revision-u-s-397-401-Cr-P-C-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 2,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 43,
+  "name": "Petition Filed u/s. 317 / 256 of Cr. P.C.",
+  "file": "43-Petition-Filed-u-s-317-256-of-Cr-P-C.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Main Case Number"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[REASON_FOR_ABSENCE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Reason the Petitioner Cannot Attend"
+   },
+   {
+    "n": 9,
+    "token": "[PLACE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Place"
+   },
+   {
+    "n": 10,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 11,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 12,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 13,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 14,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Main Case Number"
+   },
+   {
+    "n": 15,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 16,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 44,
+  "name": "Petition Filed U/Sec. 279/355 of BNSS-2023",
+  "file": "44-Petition-Filed-U-Sec-279-355-of-BNSS-2023.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "CC / MC Number (the main case)"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[REASON_FOR_ABSENCE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Reason the Petitioner Cannot Attend"
+   },
+   {
+    "n": 9,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 10,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 11,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 12,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 13,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 14,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 15,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "CC / MC Number (the main case)"
+   },
+   {
+    "n": 16,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 17,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 45,
+  "name": "Petition Filed U/Sec. 279/355 of BNSS-2023 (STC/C.C/S.C.)",
+  "file": "45-Petition-Filed-U-Sec-279-355-of-BNSS-2023-STC-C-C-S-C.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[COURT_PLACE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court place"
+   },
+   {
+    "n": 3,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 4,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 5,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "STC / C.C. / S.C. Number (the main case)"
+   },
+   {
+    "n": 6,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 8,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 9,
+    "token": "[REASON_FOR_ABSENCE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Reason the Petitioner Cannot Attend"
+   },
+   {
+    "n": 10,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 11,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 12,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 13,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 14,
+    "token": "[COURT_PLACE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court place"
+   },
+   {
+    "n": 15,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 16,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 17,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "STC / C.C. / S.C. Number (the main case)"
+   },
+   {
+    "n": 18,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 19,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 20,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 21,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 22,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   },
+   {
+    "n": 23,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 46,
+  "name": "Petition to Condone Delay under Section 148 & 151 C.P.C. (with Affidavit)",
+  "file": "46-Petition-to-Condone-Delay-under-Section-148-151-C-P-C-with-Affidavit.pdf",
+  "pages": 3,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 3,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 4,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 5,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Main Case Number"
+   },
+   {
+    "n": 6,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[DEPONENT_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Deponent — Name"
+   },
+   {
+    "n": 9,
+    "token": "[DEPONENT_AGE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Deponent — Age"
+   },
+   {
+    "n": 10,
+    "token": "[DELAY_PERIOD]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Length of Delay to be Condoned"
+   },
+   {
+    "n": 11,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 12,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 13,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 14,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 15,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 16,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 17,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Main Case Number"
+   },
+   {
+    "n": 18,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 19,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 20,
+    "token": "[DELAY_PERIOD]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Length of Delay to be Condoned"
+   },
+   {
+    "n": 21,
+    "token": "[STATION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Station"
+   },
+   {
+    "n": 22,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 23,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 24,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 25,
+    "token": "[MAIN_CASE_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Main Case Number"
+   },
+   {
+    "n": 26,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 27,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 47,
+  "name": "Petition to Number Out of Order under Rule 57 C.R.P. (with Affidavit u/s 139 C.P.C.)",
+  "file": "47-Petition-to-Number-Out-of-Order-under-Rule-57-C-R-P-with-Affidavit-u-s-139-C-P-C.pdf",
+  "pages": 4,
+  "overflow": false,
+  "paginated": true,
+  "overshootBeforePt": 23,
+  "overshootPt": 0,
+  "blankOverflow": true,
+  "blankOvershootPt": 23,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[IA_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "I.A. Number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[DEPONENT_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Deponent — Name"
+   },
+   {
+    "n": 9,
+    "token": "[DEPONENT_FATHER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Deponent — Father’s Name"
+   },
+   {
+    "n": 10,
+    "token": "[DEPONENT_AGE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Deponent — Age"
+   },
+   {
+    "n": 11,
+    "token": "[DEPONENT_RELIGION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Deponent — Religion"
+   },
+   {
+    "n": 12,
+    "token": "[DEPONENT_ADDRESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Deponent — Address"
+   },
+   {
+    "n": 13,
+    "token": "[CASE_FILED_FOR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "What the Case was Filed For"
+   },
+   {
+    "n": 14,
+    "token": "[URGENCY_REASON]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Why Urgent Orders are Needed"
+   },
+   {
+    "n": 15,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 16,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 17,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 18,
+    "token": "[PLACE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Place"
+   },
+   {
+    "n": 19,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 20,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 21,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 22,
+    "token": "[IA_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "I.A. Number"
+   },
+   {
+    "n": 23,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 24,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 25,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 26,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 27,
+    "token": "[PLACE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Place"
+   },
+   {
+    "n": 28,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 29,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 30,
+    "token": "[IA_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "I.A. Number"
+   },
+   {
+    "n": 31,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 48,
+  "name": "Process Fee Form (Delhi High Court)",
+  "file": "48-Process-Fee-Form-Delhi-High-Court.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 49,
+  "name": "Process Memo",
+  "file": "49-Process-Memo.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[HEARING_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Hearing Date — Day and Month"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 7,
+    "token": "[PARTY_TYPE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — party type (Plaintiff / Defendant)"
+   },
+   {
+    "n": 8,
+    "token": "[PARTIES_TO_SUMMON]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Parties to be Summoned"
+   },
+   {
+    "n": 9,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 10,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 11,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 12,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 13,
+    "token": "[PARTY_TYPE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — party type (Plaintiff / Defendant)"
+   },
+   {
+    "n": 14,
+    "token": "[FILED_ON]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Filed On"
+   },
+   {
+    "n": 15,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 50,
+  "name": "Propfarma of NI Act Cases Summons — Form I (Summons to an Accused Person)",
+  "file": "50-Propfarma-of-NI-Act-Cases-Summons-Form-I-Summons-to-an-Accused-Person.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 2,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 3,
+    "token": "[MAGISTRATE_COURT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Magistrate to Appear Before"
+   },
+   {
+    "n": 4,
+    "token": "[HEARING_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Hearing Date — Day and Month"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[NO_APPEAR_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date Appearance Can Be Avoided By"
+   },
+   {
+    "n": 7,
+    "token": "[DEPOSIT_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Amount to be Deposited"
+   },
+   {
+    "n": 8,
+    "token": "[DEPOSIT_BY_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Deposit By — Date"
+   },
+   {
+    "n": 9,
+    "token": "[COMPLAINANT_BANK_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Complainant’s Bank Name"
+   },
+   {
+    "n": 10,
+    "token": "[BANK_ACCOUNT_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Complainant’s Bank Account Number"
+   },
+   {
+    "n": 11,
+    "token": "[STATED_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Stated Amount"
+   },
+   {
+    "n": 12,
+    "token": "[COMPLAINANT_EMAIL]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Complainant’s E-mail ID"
+   },
+   {
+    "n": 13,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 14,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 15,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 51,
+  "name": "Summons (O. 5, RR 1, 5 C.P.C.)",
+  "file": "51-Summons-O-5-RR-1-5-C-P-C.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[CASE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Suit Year"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[HEARING_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Hearing Year"
+   },
+   {
+    "n": 7,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 8,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 9,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 52,
+  "name": "Summons to Accused (Sec. 61 Cr.P.C.) with Note on Provision for Compromise",
+  "file": "52-Summons-to-Accused-Sec-61-Cr-P-C-with-Note-on-Provision-for-Compromise.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[CASE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "C.C. Year"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[ACCUSED_ADDRESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Address of the Accused"
+   },
+   {
+    "n": 7,
+    "token": "[CHARGE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Charge"
+   },
+   {
+    "n": 8,
+    "token": "[HEARING_DATE_TEXT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Hearing Date — Day and Month"
+   },
+   {
+    "n": 9,
+    "token": "[HEARING_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Hearing Year"
+   },
+   {
+    "n": 10,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 11,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 12,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 53,
+  "name": "Summons to Accused Person (Section 68 Cri. Pro. Code)",
+  "file": "53-Summons-to-Accused-Person-Section-68-Cri-Pro-Code.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": true,
+  "overshootBeforePt": 2,
+  "overshootPt": 0,
+  "blankOverflow": true,
+  "blankOvershootPt": 2,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[COURT_PLACE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court place"
+   },
+   {
+    "n": 3,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 4,
+    "token": "[CASE_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Case Year"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 7,
+    "token": "[ACCUSED_ADDRESS]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Address of the Accused"
+   },
+   {
+    "n": 8,
+    "token": "[CHARGE_SECTION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Charge — Section"
+   },
+   {
+    "n": 9,
+    "token": "[APPEAR_BEFORE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Appear Before (Magistrate / Court)"
+   },
+   {
+    "n": 10,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 11,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 12,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 13,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   },
+   {
+    "n": 14,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 15,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 54,
+  "name": "Surety Memo",
+  "file": "54-Surety-Memo.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[OFFENCE_SECTION]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Offence — Section"
+   },
+   {
+    "n": 7,
+    "token": "[SURETY_1]",
+    "kind": "MANUAL QUESTION",
+    "detail": "First Surety — Name"
+   },
+   {
+    "n": 8,
+    "token": "[SURETY_2]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Second Surety — Name"
+   },
+   {
+    "n": 9,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 10,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 55,
+  "name": "Vakalatnama (Delhi High Court)",
+  "file": "55-Vakalatnama-Delhi-High-Court.pdf",
+  "pages": 3,
+  "overflow": false,
+  "paginated": true,
+  "overshootBeforePt": 144,
+  "overshootPt": 0,
+  "blankOverflow": true,
+  "blankOvershootPt": 144,
+  "court_types": [
+   "High Court"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — full name"
+   },
+   {
+    "n": 5,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 6,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 7,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 8,
+    "token": "[CLIENT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — full name"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 56,
+  "name": "దావాసమను / Suit Summons (Order 5, Rules 1 and 5)",
+  "file": "56-Suit-Summons-Order-5-Rules-1-and-5.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[ADDRESSEE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Addressee — Name and Address"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[RELIEF_SOUGHT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Relief Sought"
+   },
+   {
+    "n": 7,
+    "token": "[APPEAR_YEAR]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Appear — Year"
+   },
+   {
+    "n": 8,
+    "token": "[APPEAR_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Appear — Month (Telugu)"
+   },
+   {
+    "n": 9,
+    "token": "[APPEAR_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Appear — Day (Telugu)"
+   },
+   {
+    "n": 10,
+    "token": "[YEAR]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — 4-digit year"
+   },
+   {
+    "n": 11,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 12,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 57,
+  "name": "నోటీసు (Notice)",
+  "file": "57-Notice.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[IA_NUMBER]",
+    "kind": "MANUAL QUESTION",
+    "detail": "I.A. Number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 5,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 6,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 7,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 8,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 9,
+    "token": "[HEARING_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Objection Hearing — Month (Telugu)"
+   },
+   {
+    "n": 10,
+    "token": "[HEARING_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Objection Hearing — Date (Telugu)"
+   },
+   {
+    "n": 11,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 12,
+    "token": "[MONTH]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — month name"
+   },
+   {
+    "n": 13,
+    "token": "[DAY]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — day of month"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 58,
+  "name": "వకాలత్ / Vakalath (Form No. 121, Rule No. 276-A)",
+  "file": "58-Vakalath-Form-No-121-Rule-No-276-A.pdf",
+  "pages": 2,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 2,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 3,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 7,
+    "token": "[DATE]",
+    "kind": "AUTOFILLED",
+    "detail": "Today's date"
+   },
+   {
+    "n": 8,
+    "token": "[ADVOCATE_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — full name"
+   },
+   {
+    "n": 9,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 10,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 11,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 12,
+    "token": "[PARTY_TYPE]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — party type (Plaintiff / Defendant)"
+   },
+   {
+    "n": 13,
+    "token": "[ADVOCATE_ADDRESS]",
+    "kind": "AUTOFILLED",
+    "detail": "Advocate — address"
+   }
+  ],
+  "orphanQuestions": []
+ },
+ {
+  "index": 59,
+  "name": "సాక్షి సమను / Witness Summons (Order 16, Rules 1 and 5)",
+  "file": "59-Witness-Summons-Order-16-Rules-1-and-5.pdf",
+  "pages": 1,
+  "overflow": false,
+  "paginated": false,
+  "overshootBeforePt": 0,
+  "overshootPt": 0,
+  "blankOverflow": false,
+  "blankOvershootPt": 0,
+  "court_types": [
+   "District & Subordinate"
+  ],
+  "slots": [
+   {
+    "n": 1,
+    "token": "[WITNESS_NAME]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Witness — Name and Address"
+   },
+   {
+    "n": 2,
+    "token": "[COURT_NAME]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — court name"
+   },
+   {
+    "n": 3,
+    "token": "[CASE_NUMBER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client — case number"
+   },
+   {
+    "n": 4,
+    "token": "[CLIENT_NAME_IF_PETITIONER]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Plaintiff"
+   },
+   {
+    "n": 5,
+    "token": "[CLIENT_NAME_IF_RESPONDENT]",
+    "kind": "AUTOFILLED",
+    "detail": "Client name, only when party type is Defendant"
+   },
+   {
+    "n": 6,
+    "token": "[YEAR_LAST]",
+    "kind": "AUTOFILLED",
+    "detail": "Today — last digit of year (completes a printed \"202_\")"
+   },
+   {
+    "n": 7,
+    "token": "[ATTEND_MONTH]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend — Month (Telugu)"
+   },
+   {
+    "n": 8,
+    "token": "[ATTEND_DATE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Date to Attend — Day (Telugu)"
+   },
+   {
+    "n": 9,
+    "token": "[DAILY_ALLOWANCE]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Daily Allowance (భత్యం)"
+   },
+   {
+    "n": 10,
+    "token": "[TOTAL_AMOUNT]",
+    "kind": "MANUAL QUESTION",
+    "detail": "Total Amount Sent (రూపాయలు)"
+   }
+  ],
+  "orphanQuestions": []
+ }
+]
